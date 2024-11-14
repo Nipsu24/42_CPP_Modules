@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:33:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/14 15:46:50 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/14 16:16:28 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,29 @@ int	main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	return (0);
 }
+
+/*More CPP-style code*/
+
+// #include <iostream>
+// #include <cctype>
+// #include <cstring> 
+
+// int main(int ac, char **av)
+// {
+// 	if (ac > 1) {
+// 		for (int j = 1; j < ac; j++) {
+// 			std::string argument = av[j];  // Convert C-string to std::string
+// 			for (size_t i = 0; i < argument.length(); i++) {
+// 				argument[i] = std::toupper(argument[i]);  // Convert each char to uppercase
+// 			}
+// 			std::cout << argument;  // Print the uppercase argument
+// 			if (j != ac - 1)
+// 				std::cout << " ";
+// 			else
+// 				std::cout << "\n";
+// 		}
+// 	} 
+// 	else
+// 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+// 	return (0);
+// }
