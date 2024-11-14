@@ -6,12 +6,12 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 13:33:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/14 15:42:20 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/14 15:46:50 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <ctype.h>
+#include <cctype>
 #include <string.h>
 
 int	main(int ac, char **av)
