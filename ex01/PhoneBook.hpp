@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:38:58 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/22 14:48:54 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:58:21 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	void	addContactField(std:: string& input, Contact &newContact,
 				const std:: string& field, void (Contact:: *setter)(std::string&));
 	void	printErrorEmptyField(const std::string& field);
+	int	checkForValidNumber(std::string input);
     // void	searchContact();
 	// void	exitPhoneBook();	
 };

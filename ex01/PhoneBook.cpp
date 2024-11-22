@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/22 14:48:57 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:19:54 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 void	PhoneBook::printErrorEmptyField(const std::string& field)
 {
 	std::cout << "Field <" << field << "> cannot be left empty\n";
+}
+
+/*Takes input string and returns 1 in case phone number is not valid.
+  Not valid phone number is defined as follows: contains any characters
+  except optional '+' on 0 index, a single space between digits, digits.*/
+int	PhoneBook:: checkForValidNumber(std::string input)
+{
+	for(size_t i = 0; i < input.length(); i++)
+	{
+		if(input[0] == '+' || isspace(input[i]))
+			i++;
+		if(input[i] && !isdigit(input[i]))
+			return (1);
+	}
+	return (0);
 }
 
 /* *setter declares member function pointer (no parameter name after string& required)*/
@@ -28,6 +43,14 @@ void	PhoneBook::addContactField(std::string& input, Contact &newContact,
 		
 		if (input.empty())
 			printErrorEmptyField(field);
+		if (field == "phone number")
+		{
+			if (checkForValidNumber(input))
+			{
+				std::cout << "Error. Invalid phone number.\n";
+				input.clear();
+			}
+		}
 		(newContact.*setter)(input);
 	}
 	input.clear();
