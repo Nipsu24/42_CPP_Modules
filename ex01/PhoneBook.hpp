@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:38:58 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/21 15:19:13 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:48:54 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ private:
 
 public:
 	//Constructor
-	PhoneBook() : mIndex(0) {}
+	// PhoneBook() = default; //segfaults when using this notation
+	PhoneBook() : mIndex(0) {} 
 	
 	//Methods
 	void	addContact();
+	void	addContactField(std:: string& input, Contact &newContact,
+				const std:: string& field, void (Contact:: *setter)(std::string&));
+	void	printErrorEmptyField(const std::string& field);
     // void	searchContact();
 	// void	exitPhoneBook();	
 };

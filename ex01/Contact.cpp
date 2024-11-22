@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:17:07 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/21 15:20:50 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:38:14 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,22 @@ std::string	Contact::getDarkestSecret() const {
 }
 
 // Setters
-void	Contact::setFirstName(const std::string& name) {
+void	Contact::setFirstName(std::string& name) {
     mFirstName = name;
 }
 
-void	Contact::setLastName(const std::string& name) {
+void	Contact::setLastName(std::string& name) {
     mLastName = name;
 }
 
-void	Contact::setNickname(const std::string& name) {
+void	Contact::setNickname(std::string& name) {
     mNickname = name;
 }
 
-void	Contact::setPhoneNo(const std::string& number) {
+void	Contact::setPhoneNo(std::string& number) {
     mPhoneNo = number;
 }
 
-void	Contact::setDarkestSecret(const std::string& secret) {
+void	Contact::setDarkestSecret(std::string& secret) {
     mDarkestSecret = secret;
 }

@@ -6,37 +6,97 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/21 15:38:55 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 14:48:57 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+void	PhoneBook::printErrorEmptyField(const std::string& field)
+{
+	std::cout << "Field <" << field << "> cannot be left empty\n";
+}
+
+/* *setter declares member function pointer (no parameter name after string& required)*/
+void	PhoneBook::addContactField(std::string& input, Contact &newContact,
+					const std::string& field, void (Contact:: *setter)(std::string&))
+{
+	while (input.empty())
+	{
+		std::cout << "Enter " << field << ": ";
+		std::getline(std::cin, input);
+		
+		if (input.empty())
+			printErrorEmptyField(field);
+		(newContact.*setter)(input);
+	}
+	input.clear();
+}
+
 void	PhoneBook::addContact()
 {
 	Contact	newContact;
-
 	std::string	input;
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, input);
-	newContact.setFirstName(input);
-
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, input);
-	newContact.setLastName(input);
-
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, input);
-	newContact.setNickname(input);
-
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, input);
-	newContact.setPhoneNo(input);
-
-	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, input);
-	newContact.setDarkestSecret(input);
-
-	mContacts[mIndex] = newContact;
+	
+	addContactField(input, newContact, "first name", &Contact::setFirstName);
+	addContactField(input, newContact, "last name", &Contact::setLastName);
+	addContactField(input, newContact, "nickname", &Contact::setNickname);
+	addContactField(input, newContact, "phone number", &Contact::setPhoneNo);
+	addContactField(input, newContact, "darkest secret", &Contact::setDarkestSecret);
+	if (mIndex >= 8)
+	{
+		mIndex = 0;
+		mContacts[mIndex] = newContact;
+	}
+	else
+		mContacts[mIndex] = newContact;
 	mIndex = mIndex + 1;
+	std::cout << "\nCurrent contacts in the PhoneBook:\n";
+    for (int i = 0; i < mIndex; i++) {
+        std::cout << "Contact " << i + 1 << ":\n";
+        std::cout << "First Name: " << mContacts[i].getFirstName() << std::endl;
+        std::cout << "Last Name: " << mContacts[i].getLastName() << std::endl;
+        std::cout << "Nickname: " << mContacts[i].getNickname() << std::endl;
+        std::cout << "Phone Number: " << mContacts[i].getPhoneNo() << std::endl;
+        std::cout << "Darkest Secret: " << mContacts[i].getDarkestSecret() << std::endl;
+        std::cout << "-------------------------------\n";
+    }
 }
+
+
+// void	PhoneBook::searchContact()
+// {
+	
+// }
+
+
+// while (input.empty())
+	// {
+	// 	std::cout << "Enter first name: ";
+	// 	std::getline(std::cin, input);
+		
+	// 	if (input.empty())
+	// 		printErrorEmptyField("first name");
+	// 	newContact.setFirstName(input);
+	// }
+	// input.clear();
+	// while (input.empty())
+	// {
+	// 	std::cout << "Enter last name: ";
+	// 	std::getline(std::cin, input);
+	// 	if (input.empty())
+	// 		printErrorEmptyField("last name");
+	// 	newContact.setLastName(input);
+	// }
+
+	// std::cout << "Enter nickname: ";
+	// std::getline(std::cin, input);
+	// newContact.setNickname(input);
+
+	// std::cout << "Enter phone number: ";
+	// std::getline(std::cin, input);
+	// newContact.setPhoneNo(input);
+
+	// std::cout << "Enter darkest secret: ";
+	// std::getline(std::cin, input);
+	// newContact.setDarkestSecret(input);

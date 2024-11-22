@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:03:41 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/21 16:19:17 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/22 11:02:55 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	main()
 			std::cout << "Error. Wrong Command\n";
 		std::getline(std::cin, input);
 	}
-	std::cout << "EXIT PHONEBOOK\n";
+	std::cout << "**EXITED PHONEBOOK**\n";
 	return (0);
 }
