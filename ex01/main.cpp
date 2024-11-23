@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:03:41 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/23 12:53:08 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/23 14:09:19 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	main()
 {
 	PhoneBook	phoneBook;
 	std::string	input;
+	bool		addFlag = false;
 	
 	printPhoneBookHeader();
 	while (input != "EXIT")
 	{
+		addFlag = false;
 		if (!std::getline(std::cin, input))
 		{
 			std::cout << "Input stream closed, exiting phonebook.\n";
@@ -37,18 +39,23 @@ int	main()
 		}
 		if (input == "ADD")
 		{
+			addFlag = true;
 			if (phoneBook.addContact())
 			{
 				std::cout << "\nInput stream closed, exiting phonebook.\n";
 				break;
 			}
+			printPhoneBookHeader();
 		}
 		if (input == "SEARCH")
 			phoneBook.searchContact();
 		else
 		{
-			std::cout << "Error. Wrong Command, try again.\n";
-			printPhoneBookHeader();
+			if (!addFlag)
+			{
+				std::cout << "Error. Wrong Command, try again.\n";
+				printPhoneBookHeader();
+			}
 		}
 	}
 	std::cout << "**PHONEBOOK EXITED**\n";
