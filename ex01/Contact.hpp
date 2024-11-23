@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:21:36 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/22 16:35:57 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/23 12:37:13 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ public:
     std::string	getPhoneNo() const;
     std::string	getDarkestSecret() const;
 	//setters
-	void	setFirstName(const std::string& name);
-	void	setLastName(const std::string& name);
-	void	setNickname(const std::string& name);
-	void	setPhoneNo(const std::string& number);
-	void	setDarkestSecret(const std::string& secret);
+	void	setFirstName(std::string& name);
+	void	setLastName(std::string& name);
+	void	setNickname(std::string& name);
+	void	setPhoneNo(std::string& number);
+	void	setDarkestSecret(std::string& secret);
 };
 
 #endif
