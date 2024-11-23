@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/22 17:23:32 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/23 11:48:31 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,15 +87,17 @@
     // }
 // }
 
-void	PhoneBook::searchContact()
+void	PhoneBook::printTableHeader()
 {
-    // Print the headers
 	std::cout << std::right << std::setw(10) << "Index" << "|";
 	std::cout << std::right << std::setw(10) << "First Name" << "|";
 	std::cout << std::right << std::setw(10) << "Last Name" << "|";
 	std::cout << std::right << std::setw(10) << "Nickname" << std::endl;
 	std::cout << std::endl;
-	//print table elements
+}
+
+void	PhoneBook::printAllContacts()
+{
 	for (int i = 0; i < mIndex; i++)
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|";
@@ -108,43 +110,65 @@ void	PhoneBook::searchContact()
 		else
 			std::cout << std::right << std::setw(10) << mContacts[i].getLastName() << "|";
 		if (mContacts[i].getNickname().length() > 10)
-			std::cout << mContacts[i].getNickname().substr(0, 9) << ".";
+			std::cout << mContacts[i].getNickname().substr(0, 9) << "." << std::endl;
 		else
 			std::cout << std::right << std::setw(10) << mContacts[i].getNickname() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << "Enter respective index for contact details\n";
 }
 
+void	PhoneBook::printSingleContactInformation(int index)
+{
+	std::cout << "***********Details of contact " << index + 1 << "**********\n";
+	std::cout << mContacts[index].getFirstName() << std::endl;
+	std::cout << mContacts[index].getLastName() << std::endl;
+	std::cout << mContacts[index].getNickname() << std::endl;
+	std::cout << mContacts[index].getPhoneNo() << std::endl;
+	std::cout << mContacts[index].getDarkestSecret() << std::endl;
+	std::cout << "*****************************************\n";
+	std::cout << "PhoneBook Options (Enter either of them):\n";
+	std::cout << "ADD\n";
+	std::cout << "SEARCH\n";
+	std::cout << "EXIT\n";
+	std::cout << "*****************************************\n";
+}
 
+void	PhoneBook::printContactDetails()
+{
+	std::string	input;
+	bool		indexExists = false;
+	
+	while (!indexExists)
+	{
+		std::cout << "Enter respective index for further contact details.\n";
+		std::getline(std::cin, input);
+		try
+		{
+			int	enteredIndex = stoi(input);
+			for (int j = 0; j < mIndex; j++)
+			{
+				if (enteredIndex == j + 1)
+				{
+					printSingleContactInformation(enteredIndex - 1);
+					indexExists = true;
+					break ;
+				}
+			}
+			if (!indexExists)
+				std::cout << "The index you entered could not be found. Please try again.\n";
+		}
+		catch (std::invalid_argument &e){
+			std::cout << "Invalid input. Please enter a number.\n";
+		}
+		catch (std::out_of_range &e){
+			std::cout << "Input number is out of range. Please try again.\n";
+		}
+	}
+}
 
-// while (input.empty())
-	// {
-	// 	std::cout << "Enter first name: ";
-	// 	std::getline(std::cin, input);
-		
-	// 	if (input.empty())
-	// 		printErrorEmptyField("first name");
-	// 	newContact.setFirstName(input);
-	// }
-	// input.clear();
-	// while (input.empty())
-	// {
-	// 	std::cout << "Enter last name: ";
-	// 	std::getline(std::cin, input);
-	// 	if (input.empty())
-	// 		printErrorEmptyField("last name");
-	// 	newContact.setLastName(input);
-	// }
-
-	// std::cout << "Enter nickname: ";
-	// std::getline(std::cin, input);
-	// newContact.setNickname(input);
-
-	// std::cout << "Enter phone number: ";
-	// std::getline(std::cin, input);
-	// newContact.setPhoneNo(input);
-
-	// std::cout << "Enter darkest secret: ";
-	// std::getline(std::cin, input);
-	// newContact.setDarkestSecret(input);
+void	PhoneBook::searchContact()
+{
+	printTableHeader();
+	printAllContacts();
+	printContactDetails();
+}

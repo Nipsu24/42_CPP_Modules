@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:38:58 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/22 17:22:59 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/23 12:03:03 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ class PhoneBook {
 private:
 	Contact	mContacts[8];
 	int		mIndex;
+	void	printErrorEmptyField(const std::string& field);
+	int		checkForValidNumber(std::string input);
+	void	printTableHeader();	
+	void	printAllContacts();
+	void	printContactDetails();
+	void	printSingleContactInformation(int index);
 
 public:
 	//Constructor
@@ -58,9 +64,7 @@ PhoneBook() : mIndex(3) {
 	// void	addContact();
 	// void	addContactField(std:: string& input, Contact &newContact,
 				// const std:: string& field, void (Contact:: *setter)(std::string&));
-	void	printErrorEmptyField(const std::string& field);
-	int		checkForValidNumber(std::string input);
-    void	searchContact();	
+    void	searchContact();
 };
 
 #endif
