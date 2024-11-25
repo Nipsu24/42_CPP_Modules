@@ -6,12 +6,14 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:03:41 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/23 14:09:19 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:23:06 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+/*Prints main menu of the phonebook, used throught the project
+  in order to show to user which options are currently available.*/
 static void	printPhoneBookHeader()
 {
 	std::cout << "*****************************************\n";
@@ -22,6 +24,10 @@ static void	printPhoneBookHeader()
 	std::cout << "*****************************************\n";
 }
 
+/*Reads user input and calls resprective phonebook functions for 
+  adding or searching contacts. addFlag variable needed in order
+  to avoid printing error message "wrong comman" also in cases
+  where adding a contact was successful.*/
 int	main()
 {
 	PhoneBook	phoneBook;

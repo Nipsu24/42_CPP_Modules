@@ -6,12 +6,13 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 10:58:50 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:45:58 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+/*Prints error message in case user tries to leave contact field empty.*/
 void	PhoneBook::printErrorEmptyField(const std::string& field)
 {
 	std::cout << "Field <" << field << "> cannot be left empty\n";
@@ -32,7 +33,9 @@ int	PhoneBook::checkForValidNumber(std::string input)
 	return (0);
 }
 
-/* *setter declares member function pointer (no parameter name after string& required)*/
+/*Function contains loop for every contact field in order to populate it with user
+  input. The '*setter' declares member function pointer (no parameter name after 
+  string& required). Returns 1 in case user hits cntrl + D.*/
 int	PhoneBook::addContactField(std::string& input, Contact &newContact,
 					const std::string& field, void (Contact:: *setter)(std::string&))
 {
@@ -57,6 +60,11 @@ int	PhoneBook::addContactField(std::string& input, Contact &newContact,
 	return (0);
 }
 
+/*Main function for adding contacts into the phonebook. Passes user input for each contact field
+  including a pointer to the respective contact setter function to addContactsField function.
+  Uses modulo calculation to account for cases where 9th contact is added (replaces oldest/first
+  contact in the array). mCount variable is used in printAlContacts and printContactDetails in order
+  to iterate through the existing contacts (stores actual number of contacts of the array).*/
 int	PhoneBook::addContact()
 {
 	Contact	newContact;
@@ -71,17 +79,10 @@ int	PhoneBook::addContact()
 	mIndex = (mIndex + 1) % 8;
 	if (mCount < 8)
 		mCount++;
-	// if (mIndex >= 8)
-	// {
-	// 	mIndex = 0;
-	// 	mContacts[mIndex] = newContact;
-	// }
-	// else
-	// 	mContacts[mIndex] = newContact;
-	// mIndex = mIndex + 1;
 	return (0);
 }
 
+/*Prints the header of the contacts list (prompted by user via "SEARCH")*/
 void	PhoneBook::printTableHeader()
 {
 	std::cout << std::right << std::setw(10) << "Index" << "|";
@@ -91,6 +92,10 @@ void	PhoneBook::printTableHeader()
 	std::cout << std::endl;
 }
 
+/*Prints all existing contacts of the phonebook with the following fields:
+  id, first name, last name, nickname on one line for each contact with a
+  column width of 10 characters. In case the entry within a column exceeds
+  column width, the entry gets abbrivated with a '.' on the 10th character. */
 void	PhoneBook::printAllContacts()
 {
 	for (int i = 0; i < mCount; i++)
@@ -112,6 +117,9 @@ void	PhoneBook::printAllContacts()
 	std::cout << std::endl;
 }
 
+/*Prints contact information of a single contact, each field printed on an
+  individual line. Afterwards the main menu of the phonebook is printed, showing
+  the user the available options.*/
 void	PhoneBook::printSingleContactInformation(int index)
 {
 	std::cout << "***********Details of contact " << index + 1 << "**********\n";
@@ -128,6 +136,10 @@ void	PhoneBook::printSingleContactInformation(int index)
 	std::cout << "*****************************************\n";
 }
 
+/*Prompts user to enter index of contact in order to display further details
+  of this contact. Checks via try/catch and stoi function if input is a digit
+  and existing in the phonebook. Displays error messages if stoi fails. Characters
+  written after a correct index are discarded.*/
 void	PhoneBook::printContactDetails()
 {
 	std::string	input;

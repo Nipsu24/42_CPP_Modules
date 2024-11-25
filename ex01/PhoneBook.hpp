@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 09:38:58 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 11:11:14 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 12:12:01 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <string>
 #include <iostream>
 #include <iomanip>
 
@@ -24,6 +23,7 @@ private:
 	int		mIndex;
 	int		mCount;
 	
+	//Methods (private)
 	void	printErrorEmptyField(const std::string& field);
 	int		checkForValidNumber(std::string input);
 	void	printTableHeader();	
@@ -37,7 +37,7 @@ public:
 	//Constructor
 	PhoneBook() : mIndex(0), mCount() {} 
 	
-	//Methods
+	//Methods (public)
 	int		addContact();
     void	searchContact();
 };
