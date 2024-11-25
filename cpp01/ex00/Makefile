@@ -6,7 +6,7 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2024/11/25 14:36:09 by mmeier           ###   ########.fr        #
+#    Updated: 2024/11/25 16:09:03 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++11
 SRC_DIR = ./
 OBJ_DIR = obj
 
-FILES = Contact.cpp \
-		PhoneBook.cpp \
+FILES = Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp \
 		main.cpp
 
 OBJ_FILES = $(addprefix $(OBJ_DIR)/, $(FILES:.cpp=.o))
@@ -32,7 +33,7 @@ $(NAME): $(OBJ_FILES)
 fsanitize: 
 	$(CC) -o $(NAME) $(FILES) -g -fsanitize=address -static-libsan 
 	
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)PhoneBook.hpp $(SRC_DIR)Contact.hpp | $(OBJ_DIR) 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)Zombie.hpp | $(OBJ_DIR) 
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_DIR):

@@ -6,8 +6,13 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:38:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 14:38:33 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 15:59:04 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
 
+void	randomChump(std::string name)
+{
+	
+}
