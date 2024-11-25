@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 11:45:58 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 13:31:18 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	PhoneBook::addContact()
 	if (addContactField(input, newContact, "darkest secret", &Contact::setDarkestSecret)) return (1);
 	mContacts[mIndex] = newContact;
 	mIndex = (mIndex + 1) % 8;
-	if (mCount < 8)
-		mCount++;
+	if (Count < 8)
+		Count++;
 	return (0);
 }
 
@@ -98,7 +98,7 @@ void	PhoneBook::printTableHeader()
   column width, the entry gets abbrivated with a '.' on the 10th character. */
 void	PhoneBook::printAllContacts()
 {
-	for (int i = 0; i < mCount; i++)
+	for (int i = 0; i < Count; i++)
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|";
 		if (mContacts[i].getFirstName().length() > 10)
@@ -153,7 +153,7 @@ void	PhoneBook::printContactDetails()
 		try
 		{
 			int	enteredIndex = stoi(input);
-			for (int j = 0; j < mCount; j++)
+			for (int j = 0; j < Count; j++)
 			{
 				if (enteredIndex == j + 1)
 				{

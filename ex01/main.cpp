@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:03:41 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 11:23:06 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 13:31:03 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,15 @@ int	main()
 			printPhoneBookHeader();
 		}
 		if (input == "SEARCH")
-			phoneBook.searchContact();
+		{
+			if (phoneBook.Count == 0)
+			{
+				std::cout << "\nNo contacts in phonebook.\n";
+				printPhoneBookHeader();
+			}
+			else
+				phoneBook.searchContact();
+		}
 		else
 		{
 			if (!addFlag)
