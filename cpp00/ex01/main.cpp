@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:03:41 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 13:31:03 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 15:33:38 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	main()
 		{
 			if (!addFlag)
 			{
+				if (input.compare("EXIT") == 0)
+					break ; 
 				std::cout << "Error. Wrong Command, try again.\n";
 				printPhoneBookHeader();
 			}
