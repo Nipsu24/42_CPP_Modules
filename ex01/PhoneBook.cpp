@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:05:06 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/23 13:06:13 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 10:58:50 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,18 @@ int	PhoneBook::addContact()
 	if (addContactField(input, newContact, "nickname", &Contact::setNickname)) return (1);
 	if (addContactField(input, newContact, "phone number", &Contact::setPhoneNo)) return (1);
 	if (addContactField(input, newContact, "darkest secret", &Contact::setDarkestSecret)) return (1);
-	if (mIndex >= 8)
-	{
-		mIndex = 0;
-		mContacts[mIndex] = newContact;
-	}
-	else
-		mContacts[mIndex] = newContact;
-	mIndex = mIndex + 1;
+	mContacts[mIndex] = newContact;
+	mIndex = (mIndex + 1) % 8;
+	if (mCount < 8)
+		mCount++;
+	// if (mIndex >= 8)
+	// {
+	// 	mIndex = 0;
+	// 	mContacts[mIndex] = newContact;
+	// }
+	// else
+	// 	mContacts[mIndex] = newContact;
+	// mIndex = mIndex + 1;
 	return (0);
 }
 
@@ -89,7 +93,7 @@ void	PhoneBook::printTableHeader()
 
 void	PhoneBook::printAllContacts()
 {
-	for (int i = 0; i < mIndex; i++)
+	for (int i = 0; i < mCount; i++)
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|";
 		if (mContacts[i].getFirstName().length() > 10)
@@ -137,7 +141,7 @@ void	PhoneBook::printContactDetails()
 		try
 		{
 			int	enteredIndex = stoi(input);
-			for (int j = 0; j < mIndex; j++)
+			for (int j = 0; j < mCount; j++)
 			{
 				if (enteredIndex == j + 1)
 				{

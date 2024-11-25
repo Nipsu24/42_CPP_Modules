@@ -6,12 +6,11 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 12:17:07 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/23 12:36:47 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:07:35 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include "PhoneBook.hpp"
 
 std::string	Contact::getFirstName() const {
     return mFirstName;

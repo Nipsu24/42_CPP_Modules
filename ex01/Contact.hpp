@@ -6,14 +6,13 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:21:36 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/23 12:37:13 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/25 11:09:37 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <cctype>
 #include <string>
 
 class Contact {
