@@ -6,11 +6,11 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2024/11/25 16:09:03 by mmeier           ###   ########.fr        #
+#    Updated: 2024/11/26 12:34:09 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = zombie
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++11
 

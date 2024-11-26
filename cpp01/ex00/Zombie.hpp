@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:38:39 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/25 16:08:12 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/26 13:57:58 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,14 @@ class Zombie {
 private:
 	std::string	name; 
 	
-	//Methods (private)
-	//TBD
-	
 public:
 	
 	//Constructor
-	Zombie() = default;
-	~Zombie(){
-		std::cout << "Zombie " << name << " has been destroyed\n" ;
-	}
+	Zombie(std::string zombieName);
+	//Deconstructor
+	~Zombie();
 	//Methods (public)
     void	announce(void);
-	Zombie *newZombie(std::string name);
-	void	randomChump(std::string name);
 };
 
 #endif
