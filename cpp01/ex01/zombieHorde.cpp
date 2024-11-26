@@ -6,12 +6,16 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:17:02 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/26 16:02:32 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/26 16:26:18 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+/*Initialises horde array for N amount of zombie classes. Uses try/catch
+  for checking whether memory allocation failed (e.g. if N is negative) and
+  returns nullpointer in this case. If allocation was successful, calls 
+  setter function for populating 'name' member variable of zombie class.*/
 Zombie*	zombieHorde(int N, std:: string name)
 {
 	Zombie* horde = nullptr;
