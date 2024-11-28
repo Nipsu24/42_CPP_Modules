@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/28 15:30:05 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 16:41:46 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,32 @@
 #include <iostream>
 #include <fstream>
 
-/*Prints out error message, in case argument amout given to program is not 3.*/
+/*Prints out error message, in case argument amout given to program
+  is not 3 or if s1 or s2 are empty strings.*/
 int	printInvalidArguments()
 {
 	std::cout << "Error. Insufficient arguments." << std::endl;
 	std::cout << "Allowed argument amount is '3' in the following order:"<< std::endl;
-	std::cout << "filename, string1, string2." << std::endl;
-	std::cout << "string1 and string2 must be of the same length." << std::endl;
+	std::cout << "Filename, string1, string2." << std::endl;
+	std::cout << "String1 and string2 cannot be empty." << std::endl;
 	return (1);
 }
 
-/*Opens file or returns error in case it cannot be opened or is empty.
-  If file can be opened, reads its content and stores it in a string.*/
-int	createSecondFile(char **av, std::string fileContent)
-{
-	std::string		s1 = av[2];
-	std::string		s2 = av[3];
-
-	std::ofstream myFileReplace("file1.replace");
-	int j = fileContent.find(av[2], 0);
-	if ((const size_t) j == std::string::npos)
-	{
-		std::cout << "String '" << av[2] << "' was not found in file1.replace." << std::endl;
-		return (1);
-	}
-	for (size_t i = j, k = 0; i - j < s1.length(); i++, k++)
-		fileContent[i] = s2[k];
-	myFileReplace << fileContent;
-	myFileReplace.close();
-	return (0);
-}
-
-int	checkEqualArgumentLen(char **av)
+/*Converts c-strings into string objects and checks if
+  any of them is empty. If this is the case, returns 1.*/
+int	checkForEmptyString(char **av)
 {
 	std::string	s1 = av[2];
 	std::string	s2 = av[3];
 	
-	if (s1.length() != s2.length())
+	if (s1.empty() || s2.empty())
 		return (1);
 	return (0);
 }
 
+/*Opens file or returns an empty string in case it cannot be opened
+  or file is empty. If file can be opened, reads its content and stores
+  it in a string and returns this string to main function.*/
 std::string	getFileContent(char **av)
 {
 	std::ifstream	myFile;
@@ -69,6 +54,7 @@ std::string	getFileContent(char **av)
 	if (!std::getline(myFile, fileContent))
 	{
 		std::cout << "Error. File 1 is empty." << std::endl;
+		myFile.close();
 		return ("");
 	}
 	else
@@ -76,13 +62,51 @@ std::string	getFileContent(char **av)
 	return (fileContent);
 }
 
+/*Creates and opens 'file1.replace' via std::ofstream (output file stream to
+  open a file -or create if it does not exist- for writing). Then iterates
+  through fileContent string(passed from main) with .find() for checking
+  identical sequence of av[2] within itself. In case an identical sequence
+  is found, '.find()' returns index of start of sequence otherwise 'npos' if
+  no identical sequence could be found. .erase() and .insert() used respectively
+  in order to erase identical sequence in file content and insert the content of
+  s2(av[3]). While loop to account for all occurences of sequences in the file.
+  Final modified string is then inserted into 'file1.replace' via '<<' operator.*/
+int	createSecondFile(char **av, std::string fileContent)
+{
+	std::string		s1 = av[2];
+	std::string		s2 = av[3];
+	std::ofstream	myFileReplace("file1.replace");
+	bool			foundString = false;
+	
+	int 			j = fileContent.find(av[2], 0);
+	while ((const size_t)j != std::string::npos)
+	{
+		fileContent.erase(j, s1.length());
+		fileContent.insert(j, s2);
+		foundString = true;
+		j = fileContent.find(av[2], 0);
+	}
+	if (foundString == true)
+	{
+		myFileReplace << fileContent;
+		myFileReplace.close();
+	}
+	else
+	{
+		std::cout << "String '" << av[2] << "' was not found in file1.replace." << std::endl;
+		myFileReplace.close();
+		return (1);
+	}
+	return (0);
+}
+
+/*First validates arguments, then retrieves content of first file and
+  passes this to createSecondFile function for further modification.*/
 int	main(int ac, char **av)
 {
 	std::string	fileContent;
 
-	if (ac != 4)
-		return (printInvalidArguments());
-	if (checkEqualArgumentLen(av))
+	if (ac != 4 || checkForEmptyString(av))
 		return (printInvalidArguments());
 	else
 	{
