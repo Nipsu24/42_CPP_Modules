@@ -6,11 +6,10 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/28 10:41:23 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 11:07:56 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
