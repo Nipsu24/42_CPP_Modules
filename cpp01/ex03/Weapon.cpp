@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:59 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/27 16:03:00 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 09:02:52 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ Weapon::~Weapon() {}
 const 	std::string& Weapon::getType() const {return mType;}
 
 /*setter function*/
-void	Weapon::setType(std::string type) {mType = type;}
+void	Weapon::setType(const std::string& type) {mType = type;}

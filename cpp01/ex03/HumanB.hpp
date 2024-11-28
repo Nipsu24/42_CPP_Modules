@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:52 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/27 16:14:33 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 09:47:39 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class HumanB {
 private:
-	Weapon		mWeapon;	
+	Weapon*		mWeapon;	
 	std::string	mName;
 
 public:
@@ -28,7 +28,7 @@ public:
 	~HumanB();
 	//Methods
 	void	attack();
-	void	setWeapon(class Weapon mWeapon);
+	void	setWeapon(Weapon& weapon);
 };
 
 #endif

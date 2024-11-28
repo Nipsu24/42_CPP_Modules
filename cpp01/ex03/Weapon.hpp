@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:58:02 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/27 16:03:10 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 08:52:04 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	~Weapon();
 	//Methods
 	const 	std::string& getType() const;
-	void	setType(std:: string type);
+	void	setType(const std:: string& type);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/27 16:20:26 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/11/28 09:10:21 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 class HumanA {
 private:
-	Weapon		mWeapon;	
+	Weapon&		mWeapon;	
 	std::string	mName;
 
 public:
 	//Constructor
-	HumanA(std::string name, Weapon mWeapon);
+	HumanA(std::string name, Weapon& weapon);
 	//Deconstructor
 	~HumanA();
 	//Methods
