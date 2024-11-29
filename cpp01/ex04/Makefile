@@ -6,7 +6,7 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2024/11/28 11:13:47 by mmeier           ###   ########.fr        #
+#    Updated: 2024/11/29 11:40:07 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ_FILES)
-	@echo "\033[32m violence has been built successfully!\033[0m"
+	@echo "\033[32m sed has been built successfully!\033[0m"
 
 fsanitize: 
 	$(CC) -o $(NAME) $(FILES) -g -fsanitize=address -static-libsan 
