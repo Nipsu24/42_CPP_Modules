@@ -6,11 +6,15 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:38:35 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/26 16:29:16 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:46:54 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+/*Constructor with initialization list*/
+
+Zombie::Zombie() : name() {}
 
 /*Deconstructor, prints out respective phrase once a zombie class has
   been destroyed.*/

@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:38:39 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/26 15:37:52 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:47:07 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 public:
 	
 	//Constructor
-	Zombie() : name() {}
+	Zombie();
 	//Deconstructor
 	~Zombie();
 	//Methods (public)
