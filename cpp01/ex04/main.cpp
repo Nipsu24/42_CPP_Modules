@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/02 11:39:01 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:00:36 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,16 @@ int	createSecondFile(char **av, std::string fileContent)
 	std::string		s1 = av[2];
 	std::string		s2 = av[3];
 	std::ofstream	myFileReplace("file1.replace");
-	bool			foundString = false;
-	bool			argMatch = true;
+	bool			stringFound = true;
 
 	int 			j = fileContent.find(av[2], 0);
 	if ((const size_t)j == std::string::npos)
-		argMatch = false;
-	if (s1 == s2)
+		stringFound = false;
+	if (s1 == s2 || stringFound == false)
 	{
 		myFileReplace << fileContent;
 		myFileReplace.close();
-		if (argMatch == false)
+		if (stringFound == false)
 			std::cout << "String '" << av[2] << "' was not found in file1.replace." << std::endl;
 		return (0);
 	}
@@ -95,20 +94,10 @@ int	createSecondFile(char **av, std::string fileContent)
 	{
 		fileContent.erase(j, s1.length());
 		fileContent.insert(j, s2);
-		foundString = true;
 		j = fileContent.find(av[2], 0);
 	}
-	if (foundString == true)
-	{
-		myFileReplace << fileContent;
-		myFileReplace.close();
-	}
-	else
-	{
-		std::cout << "String '" << av[2] << "' was not found in file1.replace." << std::endl;
-		myFileReplace.close();
-		return (1);
-	}
+	myFileReplace << fileContent;
+	myFileReplace.close();
 	return (0);
 }
 
