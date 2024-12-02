@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/29 11:43:59 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/02 12:52:07 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	
 	if (ac != 2)
 	{
-		std::cout << "Error. Invalid argument count, only 1 allowed.\n";
+		std::cout << "Error. Invalid argument count. One argument must be passed to program.\n";
 		return (1);
 	}
 	harlBot.complain(av[1]);
