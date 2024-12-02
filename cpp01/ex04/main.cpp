@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:57:55 by mmeier            #+#    #+#             */
-/*   Updated: 2024/11/28 16:41:46 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/02 11:17:59 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ std::string	getFileContent(char **av)
 }
 
 /*Creates and opens 'file1.replace' via std::ofstream (output file stream to
-  open a file -or create if it does not exist- for writing). Then iterates
-  through fileContent string(passed from main) with .find() for checking
+  open a file -or create if it does not exist- for writing). In case s1 and s2
+  are the same, copies content of fileContent into file and returns. Otherwise
+  iterates through fileContent string(passed from main) with .find() for checking
   identical sequence of av[2] within itself. In case an identical sequence
   is found, '.find()' returns index of start of sequence otherwise 'npos' if
   no identical sequence could be found. .erase() and .insert() used respectively
@@ -77,7 +78,13 @@ int	createSecondFile(char **av, std::string fileContent)
 	std::string		s2 = av[3];
 	std::ofstream	myFileReplace("file1.replace");
 	bool			foundString = false;
-	
+
+	if (s1 == s2)
+	{
+		myFileReplace << fileContent;
+		myFileReplace.close();
+		return (0);
+	}
 	int 			j = fileContent.find(av[2], 0);
 	while ((const size_t)j != std::string::npos)
 	{

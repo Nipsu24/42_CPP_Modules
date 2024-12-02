@@ -89,7 +89,7 @@
 	
 // 	if (ac != 4 || checkForEmptyString(av))
 // 	{
-// 		for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 		for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 		return (printInvalidArguments());
 // 	}
 // 	else
@@ -97,16 +97,16 @@
 // 		fileContent = getFileContent(av);
 // 		if (fileContent.empty())
 // 		{
-// 			for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 			for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 			return (1);
 // 		}
 // 		if (createSecondFile(av, fileContent))
 // 		{
-// 			for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 			for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 			return (1);
 // 		}
 //     }
-// 	for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 	for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 	return (0);
 // }
 
@@ -126,7 +126,7 @@
 	
 // 	if (ac != 4 || checkForEmptyString(av))
 // 	{
-// 		for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 		for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 		return (printInvalidArguments());
 // 	}
 // 	else
@@ -134,15 +134,15 @@
 // 		fileContent = getFileContent(av);
 // 		if (fileContent.empty())
 // 		{
-// 			for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 			for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 			return (1);
 // 		}
 // 		if (createSecondFile(av, fileContent))
 // 		{
-// 			for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 			for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 			return (1);
 // 		}
 //     }
-// 	for (int i = 0; i < 2; ++i) {free(av[i]);}
+// 	for (int i = 0; i < 4; ++i) {free(av[i]);}
 // 	return (0);
 // }
