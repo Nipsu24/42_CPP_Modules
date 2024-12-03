@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/03 14:55:23 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/03 15:05:50 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class Fixed {
 	public:
 		//Constructor
 		Fixed();
+		//Parameterized constructor I
+		Fixed(const int n);
+		//Parameterized constructor II
+		Fixed(const float n);
 		//Copy constructor
 		/*needed e.g. for "deep copies" of pointers
 		  (copying content the pointer is pointing to and not the pointer
@@ -36,8 +40,10 @@ class Fixed {
 		
 		//Methods:
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);	
+		void	setRawBits(int const raw);
 		
+		float	toFloat(void) const;
+		int		toInt(void) const;
 };
 
 #endif
