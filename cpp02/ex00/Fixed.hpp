@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/02 15:56:06 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/04 11:13:04 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Fixed {
 	private:
-		int					mValue;
+		int					mRawBits; // represents fixed-point value (e.g. 5.25 is stored in 5.25 x 256 = 1344)
 		static const int	mFractionalBitsAmount = 8;
 	
 	public:
