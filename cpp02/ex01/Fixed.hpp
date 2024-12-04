@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/03 15:05:50 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/04 11:40:34 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Fixed {
 	private:
-		int					mValue;
+		int					mRawBits;
 		static const int	mFractionalBitsAmount = 8;
 	
 	public:
@@ -44,6 +44,8 @@ class Fixed {
 		
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
 
 #endif
