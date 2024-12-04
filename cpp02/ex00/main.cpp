@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/03 11:20:22 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/04 16:17:55 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main(void)
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
+	Fixed a; // calls constructor
+	Fixed b(a); //calls copy constructor
+	Fixed c; // calls constructor
 
-	c = b;
+	c = b; //only calls copy assignment operator, not copy constructor, as objects already exist
 	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;

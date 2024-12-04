@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 11:11:22 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/04 16:16:24 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Fixed::Fixed(const Fixed& other){
 	mRawBits = other.getRawBits();
 }
 
-/*copy assignment operator*/
+/*copy assignment operator, called when already existing object
+  is assigned a value of another existing object*/
 Fixed& Fixed::operator=(const Fixed& other){
 	if (this == &other)
 		return (*this);
