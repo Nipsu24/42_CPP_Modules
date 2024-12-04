@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 14:40:32 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/04 15:41:02 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ int	main(void)
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+	// std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+	// std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+	// std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+	// std::cout << "d is " << d.toFloat() << " as float" << std::endl;
+	
 	//destructor called in following order d, c, b, a 
 	//-> objects are destroyed in reverse order of their construction (LIFO)
 	
