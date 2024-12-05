@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 16:09:43 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/05 15:48:08 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,88 @@ int	Fixed::toInt(void) const
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return (os);
+}
+
+/*Populates mRawBits of new Fixed class object 'result' with sum of mRawBits of the object
+  and the mRawBits of the passed class object. Overloaded operator '<<' (see function above)
+  converts the fixed-point result into float representation.*/
+Fixed	Fixed::operator+(const Fixed& fixed)
+{
+	Fixed	result;
+	
+	result.setRawBits(this->mRawBits + fixed.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator-(const Fixed& fixed)
+{
+	Fixed	result;
+	
+	result.setRawBits(this->mRawBits - fixed.getRawBits());
+	return (result);
+}
+
+/*Right bitshift operation devides result by 2^fractional bit amount in order to adjust
+  it back to fixed-point scale (as result is initially scaled twice due to each operant
+  by 2^fractional bit amount).*/
+Fixed	Fixed::operator*(const Fixed& fixed)
+{
+	Fixed		result;
+	long long	rawResult = static_cast<long long>(this->mRawBits) * fixed.getRawBits();
+	result.setRawBits(static_cast<int>(rawResult >> mFractionalBitsAmount));
+	return (result);
+}
+
+/*Left bitshift before devision to ensure that numerator is properly scaled to maintain precision*/
+Fixed	Fixed::operator/(const Fixed& fixed)
+{
+	Fixed		result;
+	long long	rawResult = (static_cast<long long>(this->mRawBits) << mFractionalBitsAmount) / fixed.getRawBits();
+	result.setRawBits(static_cast<int>(rawResult));
+	return (result);
+}
+
+/*Overloads operators: >, <, <=, >=, ==, !=*/
+bool	Fixed::operator>(const Fixed& other) const{return (mRawBits > other.mRawBits);}
+
+bool	Fixed::operator<(const Fixed& other) const{return (mRawBits < other.mRawBits);}
+
+bool	Fixed::operator<=(const Fixed& other) const{return (mRawBits <= other.mRawBits);}
+
+bool	Fixed::operator>=(const Fixed& other) const{return (mRawBits >= other.mRawBits);}
+
+bool	Fixed::operator==(const Fixed& other) const{return (mRawBits == other.mRawBits);}
+
+bool	Fixed::operator!=(const Fixed& other) const{return (mRawBits != other.mRawBits);}
+
+Fixed&	Fixed::min(Fixed& fixedA, Fixed& fixedB)
+{
+	if (fixedA <= fixedB)
+		return (fixedA);
+	else
+		return (fixedB);
+}
+
+const Fixed&	Fixed::min(const Fixed& fixedA, const Fixed& fixedB)
+{
+	if (fixedA <= fixedB)
+		return (fixedA);
+	else
+		return (fixedB);
+}
+
+Fixed&	Fixed::max(Fixed& fixedA, Fixed& fixedB)
+{
+	if (fixedA >= fixedB)
+		return (fixedA);
+	else
+		return (fixedB);
+}
+
+const Fixed&	Fixed::max(const Fixed& fixedA, const Fixed& fixedB)
+{
+	if (fixedA >= fixedB)
+		return (fixedA);
+	else
+		return (fixedB);
 }

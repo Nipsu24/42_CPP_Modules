@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 15:29:21 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/05 17:03:16 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,30 @@ class Fixed {
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-		// friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+		Fixed	operator+(const Fixed& fixed);
+		Fixed	operator-(const Fixed& fixed);
+		Fixed	operator*(const Fixed& fixed);
+		Fixed	operator/(const Fixed& fixed);
+
+		bool	operator>(const Fixed& other) const;
+		bool	operator<(const Fixed& other) const;
+		bool	operator<=(const Fixed& other) const;
+		bool	operator>=(const Fixed& other) const;
+		bool	operator==(const Fixed& other) const;
+		bool	operator!=(const Fixed& other) const;
+
+		void	operator
+
+		static Fixed&	min(Fixed& fixedA, Fixed& fixedB);
+		static const Fixed&	min(const Fixed& fixedA, const Fixed& fixedB);
+		static Fixed&	max(Fixed& fixedA, Fixed& fixedB);
+		static const Fixed&	max(const Fixed& fixedA, const Fixed& fixedB);
+		
+		// bool	operator<(const Fixed& other);
+		// bool	operator>=(const Fixed& other);
+		// bool	operator<=(const Fixed& other);
+		// bool	operator==(const Fixed& other);
+		// bool	operator!=(const Fixed& other);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
