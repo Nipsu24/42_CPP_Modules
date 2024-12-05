@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/05 17:03:16 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/05 17:11:56 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ class Fixed {
 		bool	operator>=(const Fixed& other) const;
 		bool	operator==(const Fixed& other) const;
 		bool	operator!=(const Fixed& other) const;
-
-		void	operator
 
 		static Fixed&	min(Fixed& fixedA, Fixed& fixedB);
 		static const Fixed&	min(const Fixed& fixedA, const Fixed& fixedB);
