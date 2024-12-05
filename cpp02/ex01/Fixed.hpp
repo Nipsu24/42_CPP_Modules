@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 15:29:21 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/05 10:54:36 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ class Fixed {
 		
 		float	toFloat(void) const;
 		int		toInt(void) const;
-
-		// friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
