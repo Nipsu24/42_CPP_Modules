@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/05 15:48:08 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/08 18:16:59 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,39 @@ Fixed	Fixed::operator/(const Fixed& fixed)
 	long long	rawResult = (static_cast<long long>(this->mRawBits) << mFractionalBitsAmount) / fixed.getRawBits();
 	result.setRawBits(static_cast<int>(rawResult));
 	return (result);
+}
+
+/*prefix increment
+  Returns reference to the current object.*/
+Fixed& Fixed::operator++()
+{
+	this->mRawBits++;
+	return (*this);
+}
+
+/*postfix increment, 
+ Not returned as reference, ss it returns temporary object and not a reference
+  to a current object */
+Fixed Fixed::operator++(int)
+{
+	Fixed	temp = *this;
+	this->mRawBits++;
+	return (temp);
+}
+
+/*prefix decrement*/
+Fixed& Fixed::operator--()
+{
+	this->mRawBits--;
+	return (*this);
+}
+
+/*postfix decrement*/
+Fixed Fixed::operator--(int)
+{
+	Fixed	temp = *this;
+	this->mRawBits--;
+	return (temp);
 }
 
 /*Overloads operators: >, <, <=, >=, ==, !=*/

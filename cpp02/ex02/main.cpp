@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/05 16:54:38 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/08 18:37:10 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(void)
 	Fixed const e(Fixed(5.05f) / Fixed(2));
 	Fixed const	f(Fixed(5.05f) + Fixed(2));
 	Fixed const	g(Fixed(5.05f) - Fixed(2));
+	Fixed		h(Fixed(5.0f) + Fixed(2));
+	Fixed		i(Fixed(5.0f) + Fixed(2));
 	// Fixed const	b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << "a is: " << a << std::endl;
@@ -53,6 +55,27 @@ int	main(void)
 	std::cout << "Comparing a and g, g has max value. The value is: "<< Fixed::max(a, g) << std::endl;
 	std::cout << "Comparing c and d, c has min value. The value is: "<< Fixed::min(c, d) << std::endl;
 	std::cout << "Comparing a and g, a has min value. The value is: "<< Fixed::min(a, g) << std::endl;
-
+	
+	std::cout << "h before postincrement " << h << std::endl;
+	h++;
+	std::cout << "h after postincrement " << h << std::endl;
+	std::cout << "i before preincrement " << i << std::endl;
+	++i;
+	std::cout << "i after preincrement " << i << std::endl;
+	std::cout << "h before postdecrement " << h << std::endl;
+	h--;
+	std::cout << "h after postdecrement " << h << std::endl;
+	std::cout << "i before predecrement " << i << std::endl;
+	--i;
+	std::cout << "i after predecrement " << i << std::endl;
+	std::cout << std::endl;
+	a = --i;
+	std::cout << "a equal --i " << a << std::endl;
+	a = i++;
+	std::cout << "a equal i++ " << a << std::endl;
+	a = i--;
+	std::cout << "a equal i-- " << a << std::endl;
+	a = ++i;
+	std::cout << "a equal ++i " << a << std::endl;
 	return (0);
 }
