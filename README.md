@@ -18,8 +18,17 @@ The repository contains several modules consisting of different exercises relate
 ## Modules
 <details>
   <summary>CPP00</summary>
-  
-  Description and exercises for the CPP00 module go here.
+	
+  - **ex00**:
+    - Familiarizes with basic C++ concepts such as **string** class, related functions and **cout**.
+  - **ex01**:
+    - Introduces **classes** initialization, **cin** object of isstream class and further string manipulation and
+      formatting possibilities such as **.substr()**, **.setw()**, and **.length()**.
+    - Sets up a phone book by initialising a class 'PhoneBook', containing 8 classes of contacts 
+    - user has options between the 3 commands ```ADD```, ```SEARCH``` and ```EXIT``` which respectively
+      adds contacts (and their details), searches for contacts (first displays entire list of contacts,
+      then by entering index shows contact details) or exits the phone book
+    - in case of invalid input, errors are displayed to the user
   
 </details>
 
