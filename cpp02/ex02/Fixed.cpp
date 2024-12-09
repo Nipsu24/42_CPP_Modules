@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/09 12:02:25 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/09 14:15:03 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,8 @@ Fixed	Fixed::operator*(const Fixed& fixed)
 	return (result);
 }
 
-/*Left bitshift before devision to ensure that numerator is properly scaled to maintain precision*/
+/*Left bitshift before devision to ensure that numerator is properly scaled to maintain fractional precision.
+  e.g. 512 w/o leftshift:512/256 = 2, w. leftshift: (512 * 256) / 256 = 512 -> fractional part is preserved.*/
 Fixed	Fixed::operator/(const Fixed& fixed)
 {
 	Fixed		result;
@@ -168,7 +169,8 @@ Fixed Fixed::operator--(int)
 	return (temp);
 }
 
-/*Overloads operators: >, <, <=, >=, ==, !=*/
+/*Overloads operators: >, <, <=, >=, ==, !=, functions return 'true (1)' or 'false (0)' depending if
+  the conditions are met.*/
 bool	Fixed::operator>(const Fixed& other) const{return (mRawBits > other.mRawBits);}
 
 bool	Fixed::operator<(const Fixed& other) const{return (mRawBits < other.mRawBits);}
