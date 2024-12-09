@@ -20,10 +20,11 @@ The repository contains several modules consisting of different exercises relate
   <summary>CPP00</summary>
 	
   - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp00/ex00)
-    - Familiarizes with basic C++ concepts such as **string** class, related functions and **cout**.
+    - familiarizes with basic C++ concepts such as **string** class, related functions and **cout**.
   - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp00/ex01)
-    - Introduces **classes** initialization, **cin** object of isstream class and further string manipulation and
+    - introduces **classes** initialization, **cin** object of isstream class and further string manipulation and
       formatting possibilities such as **.substr()**, **.setw()**, and **.length()**.
+      Additionally **try / catch** statements are used.
     - Sets up a phone book by initialising a class 'PhoneBook', containing 8 classes of contacts 
     - user has options between the 3 commands ```ADD```, ```SEARCH``` and ```EXIT``` which respectively
       adds contacts (and their details), searches for contacts (first displays entire list of contacts,
@@ -35,7 +36,29 @@ The repository contains several modules consisting of different exercises relate
 <details>
   <summary>CPP01</summary>
   
-  Description and exercises for the CPP01 module go here.
+ - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex00)
+    - introduces **new** for allocating memory for a class
+    - learning about initialising classes on heap vs. stack
+ - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex01)
+    - learning about array of classes using new for memory allocation
+ - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex02)
+    - introduces concept of **references**
+ - [**ex03**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex03)
+    - reference vs. pointer to a class
+    - object which contains pointer to a class can be initialised without explicitly
+      assigning value to the class whereby reference requires the object of the class
+      not to be empty
+ - [**ex04**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex04)
+    - introduces concepts of **ifstream** and **ofstream**
+    - further string manipulation such as **.find()**, **.erase()**, **.insert()**
+    - user can give 3 arguments to the program (file name, string1 and string2),
+      the content of the file given to the program is copied into another created
+      file and then the sequence of string2 replaces sequence of string1 (if existing),
+      prints errors in case of invalid arguments
+ - [**ex05**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex05)
+    - introduces concept of **function pointers** in C++
+ - [**ex06**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp01/ex06)
+    - introduces concept of **switch** statements
   
 </details>
 
