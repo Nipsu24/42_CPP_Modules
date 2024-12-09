@@ -19,9 +19,9 @@ The repository contains several modules consisting of different exercises relate
 <details>
   <summary>CPP00</summary>
 	
-  - **ex00**:
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp00/ex00)
     - Familiarizes with basic C++ concepts such as **string** class, related functions and **cout**.
-  - **ex01**:
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp00/ex01)
     - Introduces **classes** initialization, **cin** object of isstream class and further string manipulation and
       formatting possibilities such as **.substr()**, **.setw()**, and **.length()**.
     - Sets up a phone book by initialising a class 'PhoneBook', containing 8 classes of contacts 
