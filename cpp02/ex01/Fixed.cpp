@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/04 16:09:43 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/09 13:49:59 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ Fixed::Fixed(const float n){
 	mRawBits = static_cast<int>(roundf(n * (1 << mFractionalBitsAmount)));
 }
 
-/*copy-constructor, takes as argument already existing class object*/
+/*Copy-constructor, initialises object as a copy of another.
+  Takes as argument already existing class object*/
 Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called" << std::endl;
 	mRawBits = other.getRawBits();
 }
 
 /*copy assignment operator, defines how object attributes should be 
-  populated from copied class*/
+  populated from copied class, is called with '='*/
 Fixed& Fixed::operator=(const Fixed& other){
 	if (this == &other)
 		return (*this);
