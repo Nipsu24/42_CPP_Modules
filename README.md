@@ -64,8 +64,15 @@ The repository contains several modules consisting of different exercises relate
 
 <details>
   <summary>CPP02</summary>
-  
-  Description and exercises for the CPP02 module go here.
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp02/ex00)
+    - set up of classes in **orthodox canonical form**
+    - learning about copy constructor and copy-assignment constructor
+    - fixed point vs floating point vs integer representation
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp02/ex01)
+    - introduces concept of **operator overloading**
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp02/ex02)
+    - further operator overloading for <, >, !=, ==, >=, <=, ++, -- 
   
 </details>
 
