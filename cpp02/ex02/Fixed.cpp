@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:21:32 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/08 18:16:59 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/09 12:02:25 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 /*constructor*/
 Fixed::Fixed() : mRawBits(0) {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 //Parameterized constructor I (int)
 Fixed::Fixed(const int n){
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	mRawBits = n * (1 << mFractionalBitsAmount);
 }
 
 //Parameterized constructor II (float)
 Fixed::Fixed(const float n){
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	mRawBits = static_cast<int>(roundf(n * (1 << mFractionalBitsAmount)));
 }
 
 /*copy-constructor, takes as argument already existing class object*/
 Fixed::Fixed(const Fixed& other){
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	mRawBits = other.getRawBits();
 }
 
@@ -40,14 +40,14 @@ Fixed::Fixed(const Fixed& other){
 Fixed& Fixed::operator=(const Fixed& other){
 	if (this == &other)
 		return (*this);
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	mRawBits = other.getRawBits();
 	return (*this);
 }
 
 /*deconstructor*/
 Fixed::~Fixed(){
-	std::cout << "Destructor called " << std::endl;
+	// std::cout << "Destructor called " << std::endl;
 }
 
 /*Returns value of member variable rawBits (fixed-point representation of a number).
@@ -135,7 +135,7 @@ Fixed	Fixed::operator/(const Fixed& fixed)
 	return (result);
 }
 
-/*prefix increment
+/*prefix increment, increments value by 1/256 (0.00390625)
   Returns reference to the current object.*/
 Fixed& Fixed::operator++()
 {
@@ -143,8 +143,8 @@ Fixed& Fixed::operator++()
 	return (*this);
 }
 
-/*postfix increment, 
- Not returned as reference, ss it returns temporary object and not a reference
+/*postfix increment, increments value by 1/256 (0.00390625)
+ Not returned as reference, as it returns temporary object and not a reference
   to a current object */
 Fixed Fixed::operator++(int)
 {
@@ -153,14 +153,14 @@ Fixed Fixed::operator++(int)
 	return (temp);
 }
 
-/*prefix decrement*/
+/*prefix decrement, decrements value by 1/256 (0.00390625)*/
 Fixed& Fixed::operator--()
 {
 	this->mRawBits--;
 	return (*this);
 }
 
-/*postfix decrement*/
+/*postfix decrement, decrements value by 1/256 (0.00390625)*/
 Fixed Fixed::operator--(int)
 {
 	Fixed	temp = *this;

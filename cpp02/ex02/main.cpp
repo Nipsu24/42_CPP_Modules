@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/08 18:37:10 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/09 13:34:38 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,8 @@ int	main(void)
 	Fixed const	g(Fixed(5.05f) - Fixed(2));
 	Fixed		h(Fixed(5.0f) + Fixed(2));
 	Fixed		i(Fixed(5.0f) + Fixed(2));
-	// Fixed const	b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << "a is: " << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-
 	std::cout << "b is: " << b << std::endl;
 	std::cout << "c is: " << c << std::endl;
 	std::cout << "d is: " << d << std::endl;
@@ -70,12 +64,12 @@ int	main(void)
 	std::cout << "i after predecrement " << i << std::endl;
 	std::cout << std::endl;
 	a = --i;
-	std::cout << "a equal --i " << a << std::endl;
+	std::cout << "a = --i, a is " << a << std::endl;
 	a = i++;
-	std::cout << "a equal i++ " << a << std::endl;
+	std::cout << "a = i++, a is " << a << std::endl;
 	a = i--;
-	std::cout << "a equal i-- " << a << std::endl;
+	std::cout << "a = i--, a is " << a << std::endl;
 	a = ++i;
-	std::cout << "a equal ++i " << a << std::endl;
+	std::cout << "a = ++i, a is " << a << std::endl;
 	return (0);
 }

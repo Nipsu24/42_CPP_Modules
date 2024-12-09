@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 09:55:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/08 18:15:15 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/09 11:53:43 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ class Fixed {
 		static const Fixed&	min(const Fixed& fixedA, const Fixed& fixedB);
 		static Fixed&	max(Fixed& fixedA, Fixed& fixedB);
 		static const Fixed&	max(const Fixed& fixedA, const Fixed& fixedB);
-		
-		// bool	operator<(const Fixed& other);
-		// bool	operator>=(const Fixed& other);
-		// bool	operator<=(const Fixed& other);
-		// bool	operator==(const Fixed& other);
-		// bool	operator!=(const Fixed& other);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
