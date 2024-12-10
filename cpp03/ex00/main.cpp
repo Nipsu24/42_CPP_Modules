@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/10 12:10:59 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/10 14:18:16 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(void)
 	Cat.takeDamage(5);
 	Cat.beRepaired(2);
 	Cat.attack("Jerry");
-	Cat.takeDamage(5);
+	Cat.takeDamage(1);
 	Cat.attack("Jerry");
-	Cat.takeDamage(5);
+	Cat.takeDamage(1);
 	Cat.attack("Jerry");
 	Cat.attack("Jerry");
 	Cat.attack("Jerry");
