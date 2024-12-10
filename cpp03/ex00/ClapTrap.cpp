@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:08:44 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/09 16:41:14 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/10 12:09:34 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,37 @@ ClapTrap:: ~ClapTrap(){std::cout << "Destructor called" << std::endl;}
 
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << "ClapTrap" << mName << " attacks " << target << ", causing " <<  mAttackDamage << "of damage!" << std::endl;
+	if (mEnergyPoints > 0 && mHitPoints > 0)
+	{
+		mEnergyPoints = mEnergyPoints - 1;
+		std::cout << "ClapTrap " << mName << " attacks " << target << ", causing " << mAttackDamage << " amount of damage!" << std::endl;
+	}
+	if (mEnergyPoints <= 0)
+		std::cout << "ClapTrap" << mName << " cannot attack as it does not have any energy points left" << std::endl;
+	if (mHitPoints <= 0)
+		std::cout << "ClapTrap" << mName << " cannot attack as it does not have any hit points left" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap" << mName << " takes " << amount << ", amount of damage!" << std::endl;
+	std::cout << "ClapTrap " << mName << " gets outsmarted by a sneaky mouse and takes " << amount << " amount of damage!" << std::endl;
+	mHitPoints = mHitPoints - amount;
+	if (mHitPoints > 0)
+		std::cout << "... and has " << mHitPoints << " hit points left!" << std::endl;
+	else
+		std::cout << "...and has no hit points left!" << std::endl;
 }
+
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << "ClapTrap" << mName << " repairs itself and gets " << amount << ", hit points back!" << std::endl;
+	if (mEnergyPoints > 0 && mHitPoints > 0)
+	{
+		mEnergyPoints = mEnergyPoints - 1;
+		mHitPoints = mHitPoints + amount;
+		std::cout << "ClapTrap" << mName << " repairs itself and gets " << amount << " hit points back!" << std::endl;
+	}
+	if (mEnergyPoints <= 0)
+		std::cout << "ClapTrap" << mName << " cannot repair as it does not have any energy points left" << std::endl;
+	if (mHitPoints <= 0)
+		std::cout << "ClapTrap" << mName << " cannot repair as it does not have any hit points left" << std::endl;
 }

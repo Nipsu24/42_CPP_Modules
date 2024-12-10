@@ -6,11 +6,11 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2024/12/09 16:08:29 by mmeier           ###   ########.fr        #
+#    Updated: 2024/12/10 10:23:18 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = claptrap
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++11
 
