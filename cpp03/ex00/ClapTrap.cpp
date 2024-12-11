@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:08:44 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/11 11:24:35 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/11 15:32:01 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << "ClapTrap " << mName << " attacks " << target << ", causing " << mAttackDamage << " amount of damage!" << std::endl;
 	}
 	else if (mEnergyPoints <= 0)
-		std::cout << "ClapTrap" << mName << " cannot attack as it does not have any energy points left" << std::endl;
+		std::cout << "ClapTrap " << mName << " cannot attack as it does not have any energy points left!" << std::endl;
 	else if (mHitPoints <= 0)
-		std::cout << "ClapTrap" << mName << " cannot attack as it does not have any hit points left" << std::endl;
+		std::cout << "ClapTrap " << mName << " cannot attack as it does not have any hit points left!" << std::endl;
 }
 
 /*Checks amount of hit points after substraction of passed int and prints respective message*/
@@ -73,10 +73,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		mEnergyPoints = mEnergyPoints - 1;
 		mHitPoints = mHitPoints + amount;
-		std::cout << "ClapTrap" << mName << " repairs itself and gets " << amount << " hit points back!" << std::endl;
+		std::cout << "ClapTrap " << mName << " repairs itself and gets " << amount << " hit points back!" << std::endl;
 	}
 	else if (mEnergyPoints <= 0)
-		std::cout << "ClapTrap" << mName << " cannot repair as it does not have any energy points left" << std::endl;
+		std::cout << "ClapTrap " << mName << " cannot repair as it does not have any energy points left!" << std::endl;
 	else if (mHitPoints <= 0)
-		std::cout << "ClapTrap" << mName << " cannot repair as it does not have any hit points left" << std::endl;
+		std::cout << "ClapTrap " << mName << " cannot repair as it does not have any hit points left!" << std::endl;
 }
