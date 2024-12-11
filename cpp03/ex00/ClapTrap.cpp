@@ -6,14 +6,14 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:08:44 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/10 14:26:43 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/11 11:24:35 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 /*Constructor*/
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : mHitPoints(10), mEnergyPoints(10), mAttackDamage(0)
 {
 	std::cout << "Constructor called." << std::endl;
 	mName = name;

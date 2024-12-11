@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:09:19 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/09 16:26:04 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/11 11:25:48 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class ClapTrap {
 	private:
 		std::string	mName;
-		int			mHitPoints = 10;
-		int			mEnergyPoints = 10;
-		int			mAttackDamage = 0;
+		int			mHitPoints;
+		int			mEnergyPoints;
+		int			mAttackDamage;
 	
 	public:
 		//Constructor
