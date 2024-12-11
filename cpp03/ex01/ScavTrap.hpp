@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:09:19 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/10 17:09:38 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/11 13:26:51 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class ScavTrap : public ClapTrap {
 		
 		//Methods:
 		void	guardGate();
+		void	attack(const std::string& target) override;
 };
 
 #endif
