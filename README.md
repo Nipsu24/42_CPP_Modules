@@ -76,6 +76,24 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP03</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp03/ex00)
+    - sets up class for learning about inheritance in later exercises
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp03/ex01)
+    - introduces concept of inheritance of classes
+    - initialisation of derived class, which inherits functions and members of base class
+    - as exercise requires, derived class member variables are initialised with different values
+    - **virtual function** and **function override** used in order to create unique behaviour
+      of derived class function 'attack'
+    - additionally uses **typeid** in order to determine if base or derived class object called
+      particular function for custom behaviour
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp03/ex02)
+    - same as above, further derived class with different values of the member variables is created
+  
+</details>
+
 ## Requirements
 -`c++` compiler
 
