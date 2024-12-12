@@ -6,7 +6,7 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2024/12/10 15:37:00 by mmeier           ###   ########.fr        #
+#    Updated: 2024/12/12 15:39:51 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(NAME): $(OBJ_FILES)
 fsanitize: 
 	$(CC) -o $(NAME) $(FILES) -g -fsanitize=address -static-libsan 
 	
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(SRC_DIR)ClapTrap.hpp | $(OBJ_DIR) 
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR) 
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_DIR):
