@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:42:05 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/13 16:29:07 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/13 17:28:33 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Dog : public Animal {
 	private:
-		Brain	*DogBrain;
+		Brain*	DogBrain;
 	public:
 		//Constructor
 		Dog();
