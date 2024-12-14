@@ -108,7 +108,7 @@ exercise folder in question and run:
 $ make
 ```
 
-### 2. Cleaning all binary (.o) and executable files (.a)
+### 2. Cleaning all binary (.o) and executable files
 
 To delete all files generated with make, run:
 ```
