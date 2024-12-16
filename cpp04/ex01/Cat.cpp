@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:42:47 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/16 11:03:47 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/16 11:46:19 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void	Cat::makeSound() const
 	std::cout << "Miau Miau Miau" << std::endl;
 }
 
+/*Function for accessing Brain member- used in main for further set/get idea for a cat/dog
+  and for printing memory address of the Brain pointer.*/
 Brain&	Cat::getBrain(){return (*mCatBrain);}
 

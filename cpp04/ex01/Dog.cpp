@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:41:40 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/16 11:03:37 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/16 11:46:28 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,6 @@ void	Dog::makeSound() const
 	std::cout << "Wuff Wuff Wuff" << std::endl;
 }
 
+/*Function for accessing Brain member- used in main for further set/get idea for a cat/dog
+  and for printing memory address of the Brain pointer.*/
 Brain&	Dog::getBrain(){return (*mDogBrain);}
