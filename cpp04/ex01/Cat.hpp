@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:42:26 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/13 17:29:05 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/16 11:03:47 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Cat : public Animal {
 	private:
-		Brain*	CatBrain;
+		Brain*	mCatBrain;
 	public:
 		//Constructor
 		Cat();

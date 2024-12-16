@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/13 17:17:10 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/16 11:16:16 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,25 @@ int	main(void)
 		std::cout << "++++++++++++++Normal Dog++++++++++++++" << std::endl;
 		static_cast<Dog*>(meta[2])->getBrain().getIdea(0);
 		std::cout << "Address of normal dog brain: " << &static_cast<Dog*>(meta[2])->getBrain() << std::endl;
+		std::cout << std::endl;
+		std::cout << std::endl;
+		std::cout << "++++++++++++++Normal Cat++++++++++++++" << std::endl;
+		static_cast<Cat*>(meta[6])->getBrain().setIdea(0, "I want to hunt some mice!");
+		static_cast<Cat*>(meta[6])->getBrain().getIdea(0);
+		std::cout << "Address of normal cat brain: " << &static_cast<Cat*>(meta[6])->getBrain() << std::endl;
+		std::cout << "++++++++++++++Copy Cat++++++++++++++" << std::endl;
+		Cat copyCat(*static_cast<Cat*>(meta[6])); // *static Dereferences the Cat* pointer to get the object itself.
+		copyCat.getBrain().getIdea(0);
+		std::cout << "Address of copy cat brain: " << &copyCat.getBrain() << std::endl;
+		std::cout << "++++++++++++++Copy Cat set idea++++++++++++++" << std::endl;
+		copyCat.getBrain().setIdea(0, "I want to sleep!");
+		copyCat.getBrain().getIdea(0);
+		std::cout << "Address of copy cat brain: " << &copyCat.getBrain() << std::endl;
+		std::cout << "++++++++++++++Normal Cat++++++++++++++" << std::endl;
+		static_cast<Cat*>(meta[6])->getBrain().getIdea(0);
+		std::cout << "Address of normal cat brain: " << &static_cast<Cat*>(meta[6])->getBrain() << std::endl;
+		
+		
 		for(i = 0; i < 10; i++)
 			delete meta[i];
 		delete[] meta;
