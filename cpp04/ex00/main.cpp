@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2024/12/12 16:12:10 by mmeier           ###   ########.fr       */
+/*   Updated: 2024/12/16 12:12:44 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 int	main(void)
 {
 	{
+		std::cout << "+++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+		std::cout << "+++++++++++++01 TEST+++++++++++++++++++++++" << std::endl;
+		std::cout << "+++++++++++++++++++++++++++++++++++++++++++" << std::endl;
 		const	Animal* meta = new Animal();
 		const	Animal* j = new Dog();
 		const	Animal* i = new Cat();
@@ -35,6 +38,9 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << std::endl;
 	{
+		std::cout << "+++++++++++++++++++++++++++++++++++++++++++" << std::endl;
+		std::cout << "+++++++++++++02 TEST+++++++++++++++++++++++" << std::endl;
+		std::cout << "+++++++++++++++++++++++++++++++++++++++++++" << std::endl;
 		const	WrongAnimal* meta = new WrongAnimal();
 		const	Animal* j = new Dog();
 		const	WrongAnimal* i = new WrongCat();
