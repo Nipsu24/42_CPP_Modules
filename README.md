@@ -94,6 +94,20 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP04</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp04/ex00)
+    - sets up base class and two derived classes
+    - uses virtal functions and override in order to alter behaviour of derived classes' functions
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp04/ex01)
+    - derived classes contain member variable to another class
+    - copy constructor creates deep copies of respective derived classes
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp04/ex02)
+    - same as above, but base class is made abstract by declaring pure virtual function
+  
+</details>
+
 ## Requirements
 -`c++` compiler
 
