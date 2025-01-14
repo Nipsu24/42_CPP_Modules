@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:06:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/13 15:11:15 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/14 15:40:43 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,64 @@
 
 /*Constructor*/
 Bureaucrat::Bureaucrat(std::string name, int grade)
-{
+	: mName(name), mGrade(grade) {
 	if (grade < 1 )
-		GradeTooHighException()
+		throw GradeTooHighException();
 	if (grade > 150)
-		GradeTooLowException
+		throw GradeTooLowException();
 }
 
-/*Copy Constructor*/
+/*Copy Constructor, values to be initialised via initialiser list,
+  as const members must be initialised at the point of construction.*/
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
-{
-	std::cout << "Base Copy Constructer called." << std::endl;
-	mType = other.mType;
-}
+	: mName(other.mName), mGrade(other.mGrade) {}
+	
 
-/*Copy assignment operator*/
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
-{
+/*Copy assignment operator, only mGrade considered here as it is
+  not const in constrast to mName*/
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this == &other)
 		return (*this);
-	std::cout << "Base Copy Assignment Operator called." <<std::endl;
-	mType = other.mType;
+	mGrade = other.mGrade;
 	return (*this);
 }
 
 /*Destructor*/
-Bureaucrat:: ~Bureaucrat(){std::cout << "Base Destructor called" << std::endl;}
+Bureaucrat:: ~Bureaucrat() {}
 
-std::string	Bureaucrat::getType() const {return (mType);}
+/*Getter function for name*/
+std::string	Bureaucrat::getName() const {return (mName);}
 
-void	Bureaucrat::makeSound() const
-{
-	std::cout << mType << " does not make a noise." << std::endl;
+/*Getter function for grade*/
+int	Bureaucrat::getGrade() {return (mGrade);}
+
+/*Increments grade in case it is not already 1.*/
+void	Bureaucrat::incrementGrade() {
+	if (mGrade <= 1)
+		throw GradeTooHighException();
+	mGrade--;
+}
+
+/*Decrements grade in case it is not alreay 150.*/
+void	Bureaucrat::decrementGrade() {
+	if (mGrade >= 150)
+		throw GradeTooLowException();
+	mGrade++;
+}
+
+const char*	Bureaucrat::GradeTooHighException::what() const noexcept {
+	return ("Grade is too high!");
+}
+
+// Definition of GradeTooLowException's what() method
+const char*	Bureaucrat::GradeTooLowException::what() const noexcept {
+	return ("Grade is too low!");
+}
+
+std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk) {
+    os << clerk.getName();
+	os << ",";
+	os << " bureaucrat grade ";
+	os << clerk.getGrade();
+    return (os);
 }

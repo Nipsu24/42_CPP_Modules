@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 class Bureaucrat {
 	private:
@@ -21,6 +22,15 @@ class Bureaucrat {
 		int					mGrade;
 	
 	public:
+		class GradeTooHighException : public std::exception {
+			public:
+				const char* what() const noexcept override;
+		};
+		class GradeTooLowException : public std::exception {
+			public:
+				const char* what() const noexcept override;
+		};
+		
 		//Constructor
 		Bureaucrat(std::string, int grade);
 		//Copy constructor
@@ -33,6 +43,10 @@ class Bureaucrat {
 		//Methods:
 		std::string		getName() const;
 		int				getGrade();
+		void			incrementGrade();
+		void			decrementGrade();
 };
+
+std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk);
 
 #endif
