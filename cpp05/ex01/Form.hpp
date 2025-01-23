@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                         :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 14:41:20 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/13 15:01:52 by mmeier           ###   ########.fr       */
+/*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
+/*   Updated: 2025/01/23 11:13:01 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
 #include <stdexcept>
 
-class Bureaucrat {
+class Form {
 	private:
 		const std::string	mName;
-		int					mGrade;
+		bool				mIsSigned;
+		const int			mGradeToSign;
+		const int			mGradeToExecute;
 	
 	public:
 		class GradeTooHighException : public std::exception {
@@ -33,13 +35,13 @@ class Bureaucrat {
 		};
 		
 		//Constructor
-		Bureaucrat(const std::string name, int grade);
+		Form(std::string name, const int gradeToSign, const int gradeToExecute);
 		//Copy constructor
-		Bureaucrat(const Bureaucrat& other);
+		Form(const Form& other);
 		//Copy assignment operator
-		Bureaucrat& operator=(const Bureaucrat& other);
+		Form& operator=(const Form& other);
 		//Destructor
-		~Bureaucrat();
+		~Form();
 		
 		//Methods:
 		std::string		getName() const;
