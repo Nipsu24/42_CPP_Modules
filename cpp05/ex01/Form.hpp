@@ -6,15 +6,18 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/23 11:13:01 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/29 16:43:55 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <stdexcept>
+
+class Bureaucrat;
 
 class Form {
 	private:
@@ -35,7 +38,7 @@ class Form {
 		};
 		
 		//Constructor
-		Form(std::string name, const int gradeToSign, const int gradeToExecute);
+		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
 		//Copy constructor
 		Form(const Form& other);
 		//Copy assignment operator
@@ -45,11 +48,12 @@ class Form {
 		
 		//Methods:
 		std::string		getName() const;
-		int				getGrade();
-		void			incrementGrade();
-		void			decrementGrade();
+		int				getGradeToSign() const;
+		int				getGradeToExecute() const ;
+		bool			getIsSigned() const;
+		void			beSigned(Bureaucrat& clerk);
 };
 
-std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk);
+std::ostream& operator<<(std::ostream& os, const Form& paper);
 
 #endif

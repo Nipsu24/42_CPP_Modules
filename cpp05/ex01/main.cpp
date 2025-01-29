@@ -6,15 +6,18 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/14 16:08:26 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/29 16:28:16 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void) {
 	try {
 		Bureaucrat	john("John", 5);
+		Form		alpha("Alpha", 4, 10);
+		alpha.beSigned(john);
 		std::cout << john << std::endl;
 	}
 	catch (const std::exception& e) {

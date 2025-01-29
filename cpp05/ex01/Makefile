@@ -6,7 +6,7 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2025/01/23 10:59:08 by mmeier           ###   ########.fr        #
+#    Updated: 2025/01/29 16:44:41 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_DIR = ./
 OBJ_DIR = obj
 
 FILES = Bureaucrat.cpp \
+		Form.cpp \
 		main.cpp
 
 OBJ_FILES = $(addprefix $(OBJ_DIR)/, $(FILES:.cpp=.o))

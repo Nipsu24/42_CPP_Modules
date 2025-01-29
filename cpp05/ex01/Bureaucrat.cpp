@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:06:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/23 11:04:01 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/29 16:52:42 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,11 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk) {
 	os << " bureaucrat grade ";
 	os << clerk.getGrade();
     return (os);
+}
+
+void	Bureaucrat::signForm(Form& paper, const std::string reason) {
+	if (paper.getIsSigned())
+		std::cout << *this << " signed " << paper << std::endl;
+	else
+		std::cout << *this << " couldn't sign " << paper << " because " << reason << std::endl;
 }
