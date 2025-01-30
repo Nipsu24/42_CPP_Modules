@@ -49,7 +49,7 @@ class Bureaucrat {
 		int				getGrade();
 		void			incrementGrade();
 		void			decrementGrade();
-		void			signForm(Form& paper, const std::string reason);
+		void			signForm(Form& paper);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk);

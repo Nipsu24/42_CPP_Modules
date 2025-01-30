@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:51 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/29 16:55:07 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/30 15:11:15 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	Form::getGradeToExecute() const { return (mGradeToExecute); }
 
 bool	Form::getIsSigned() const { return (mIsSigned); }
 
+/*Checks if the grade of a bureaucrat matches or is higher with the grade requrired
+  to sign the form. Sets bool to true if the conditions are met, otherwise throws exception.*/
 void	Form::beSigned(Bureaucrat& clerk) {
 	if (clerk.getGrade() <= mGradeToSign)
 		mIsSigned = true;
@@ -53,15 +55,21 @@ void	Form::beSigned(Bureaucrat& clerk) {
 }
 
 const char*	Form::GradeTooHighException::what() const noexcept {
-	return ("Grade is too high!");
+	return ("the grade is too high!");
 }
 
 // Definition of GradeTooLowException's what() method
 const char*	Form::GradeTooLowException::what() const noexcept {
-	return ("Grade is too low!");
+	return ("the grade is too low!");
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& paper) {
     os << paper.getName();
+	os << ",";
+	os << " with form signing grade ";
+	os << paper.getGradeToSign();
+	os << " and execution grade ";
+	os << paper.getGradeToExecute();
+	// os << ",";
     return (os);
 }
