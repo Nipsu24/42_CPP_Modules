@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:06:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 16:05:54 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/31 18:08:11 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Bureaucrat:: ~Bureaucrat() {}
 std::string	Bureaucrat::getName() const {return (mName);}
 
 /*Getter function for grade*/
-int	Bureaucrat::getGrade() {return (mGrade);}
+int	Bureaucrat::getGrade() const {return (mGrade);}
 
 /*Increments grade in case it is not already 1.*/
 void	Bureaucrat::incrementGrade() {
@@ -88,3 +88,12 @@ void	Bureaucrat::signForm(AForm& paper) {
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const& form) {
+	try {
+		form.execute(*this);
+		std::cout << *this << " executed " << form << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << *this << " could not execute " << form << " because " << e.what() << std::endl;
+	}
+}

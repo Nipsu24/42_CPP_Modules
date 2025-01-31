@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm copy.hpp                     :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 15:09:04 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:54:39 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class RobotomyRequestForm : public AForm {
 		~RobotomyRequestForm();
 		
 		//Methods:
+		void	execute(Bureaucrat const& executor) const;
+		void	performRobotomy() const;
 };
 
 #endif

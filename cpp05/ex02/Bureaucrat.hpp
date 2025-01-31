@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                         :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 14:41:20 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/13 15:01:52 by mmeier           ###   ########.fr       */
+/*   Created: 2025/01/31 18:01:12 by mmeier            #+#    #+#             */
+/*   Updated: 2025/01/31 18:02:19 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ class Bureaucrat {
 		
 		//Methods:
 		std::string		getName() const;
-		int				getGrade();
+		int				getGrade() const;
 		void			incrementGrade();
 		void			decrementGrade();
 		void			signForm(AForm& paper);
+		void			executeForm(AForm const& form);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& clerk);

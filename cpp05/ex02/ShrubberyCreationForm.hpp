@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 14:36:39 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:57:34 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 		
 		//Methods:
-		void		drawTrees(const std::string target);
-		std::string	drawSingleTree();
+		void		drawTrees(const std::string target) const;
+		std::string	drawSingleTree() const;
+		void		execute(Bureaucrat const& executor) const;
+		void		performShrubbery() const;
 };
 
 #endif

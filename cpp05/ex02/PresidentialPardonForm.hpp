@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 15:25:26 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:53:11 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm();
 		
 		//Methods:
+		void	execute(Bureaucrat const& executor) const;
+		void	performPardon() const;
 };
 
 #endif

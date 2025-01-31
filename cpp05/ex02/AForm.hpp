@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:42 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 16:04:21 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/01/31 17:51:13 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ class AForm {
 			public:
 				const char* what() const noexcept override;
 		};
+
+		class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const noexcept override;
+		};
 		
 		//Constructor
 		AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
@@ -52,7 +57,9 @@ class AForm {
 		int				getGradeToExecute() const ;
 		bool			getIsSigned() const;
 		void			beSigned(Bureaucrat& clerk);
-		void			execute(Bureaucrat const& executor) const;
+		virtual void	execute(Bureaucrat const& executor) const = 0;
+		void			checkExecutionRequirements(Bureaucrat const& executor) const;
+		
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& paper);
