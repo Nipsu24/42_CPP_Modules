@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:51 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 18:16:48 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/01 12:37:04 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void ShrubberyCreationForm::drawTrees(const std::string target) const {
 	std::ofstream	targetFile(target + "_shrubbery");
 	std::string		trees;
 	trees += drawSingleTree();
+	trees += '\n';
 	trees += drawSingleTree();
+	trees += '\n';
 	trees += drawSingleTree();
 	targetFile << trees;
 	targetFile.close();
