@@ -108,6 +108,22 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP05</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp05/ex00)
+    - introduces concept of throwing and catching exceptions
+    - try/catch blocks handle situations where class object is initiated with out of bounce variables
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp05/ex01)
+    - further class introduced which utilises individual custom exceptions 
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp05/ex02)
+    - abstract class and child classes which inherit exceptions from base class
+  - [**ex03**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp05/ex03)
+    - exception handling in addition to memory allocation
+    - nested try/catch blocks to prevent memory leaks
+  
+</details>
+
 ## Requirements
 -`c++` compiler
 
