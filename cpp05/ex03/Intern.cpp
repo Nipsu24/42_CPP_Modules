@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:06:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/02 13:14:23 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/04 10:52:27 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Intern& Intern::operator=(const Intern& other) {
 Intern:: ~Intern() {}
 
 /*Uses switch statement in order to check whether passed name for a form exist. If not the case,
-  throws exception.*/
+  throws exception. If memory allocation fails, prints respective message and returns nullpointer.*/
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
 	
 	int	formCode = -1;
@@ -48,20 +48,26 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 			formCode = i;
 	}
 
-	switch(formCode)
-	{
-		case 0:
-			std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
-			return (new ShrubberyCreationForm(target));
-		case 1:
-			std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
-			return (new RobotomyRequestForm(target));
-		case 2:
-			std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
-			return (new PresidentialPardonForm(target));
-		default:
-			throw FormDoesNotExistException();
-	}	
+	try {
+		switch(formCode)
+		{
+			case 0:
+				std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
+				return (new ShrubberyCreationForm(target));
+			case 1:
+				std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
+				return (new RobotomyRequestForm(target));
+			case 2:
+				std::cout << "Intern creates "	<< formName << " targeted on " << target << "." << std::endl;
+				return (new PresidentialPardonForm(target));
+			default:
+				throw FormDoesNotExistException();
+		}	
+	}
+	catch (std::bad_alloc& e) {
+		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+		return nullptr;
+	}
 }
 
 const char* Intern::FormDoesNotExistException::what() const noexcept {

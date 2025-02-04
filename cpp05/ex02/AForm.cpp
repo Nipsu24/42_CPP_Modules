@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:59:51 by mmeier            #+#    #+#             */
-/*   Updated: 2025/01/31 18:14:36 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/04 11:29:46 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void AForm::checkExecutionRequirements(Bureaucrat const& executor) const {
 	if (!mIsSigned)
 		throw FormNotSignedException();
 	if (mGradeToExecute < executor.getGrade())
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 const char*	AForm::FormNotSignedException::what() const noexcept {
