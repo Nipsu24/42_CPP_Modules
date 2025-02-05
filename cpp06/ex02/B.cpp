@@ -6,13 +6,10 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:03:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/05 17:54:46 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/05 21:13:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
 #include "B.hpp"
-#include "C.hpp"
 
 B:: ~B() {}
