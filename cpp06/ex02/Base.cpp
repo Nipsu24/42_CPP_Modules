@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:03:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/05 17:58:35 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/05 21:07:41 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 Base:: ~Base() {}
 
-/*Modulo 3 and 2 used in order to create 33,3% properbility*/
+/*Modulo 3 and 2 used in order to create 33,3% probability, returns
+  pointer to either A, B, or C class object.*/
 Base*	Base::generate(void) {
 	Base base;
 	static bool seeded = false;
@@ -46,19 +47,25 @@ Base*	Base::generate(void) {
 /*Dynamic cast checks actual type of the object pointed to by the base pointer p. If type match,
   returns non-nullptr in if statement and therefore does not need any try/catch statement.*/
 void	Base::identify(Base* p) {
-	if (dynamic_cast<A*>(p)) {
+	if (p == nullptr) {
+		std::cout << "Base pointer is nullptr" << std::endl;
+		return ;
+	}
+	else if (dynamic_cast<A*>(p)) {
 		std::cout << "A" << std::endl;
 	}
-	if (dynamic_cast<B*>(p)) {
+	else if (dynamic_cast<B*>(p)) {
 		std::cout << "B" << std::endl;
 	}
-	if (dynamic_cast<C*>(p)) {
+	else if (dynamic_cast<C*>(p)) {
 		std::cout << "C" << std::endl;
 	}
-	// else
-	// 	std::cout << "Unknown Type" << std::endl;
+	else
+		std::cout << "Unknown Type" << std::endl;
 }
 
+/*try/catch statements needed as in contrast to function above, cannot check for nullptr.
+  each statement is excecuted independently if previous statement caught exception.*/
 void	Base::identify(Base& p) {
 	try {
 		(void)dynamic_cast<A&>(p);
@@ -80,5 +87,5 @@ void	Base::identify(Base& p) {
 		return ;
 	}
 	catch (const std::bad_cast&) {}
-	// std::cout << "Unknown Type" << std::endl;
+	std::cout << "Unknown Type" << std::endl;
 }
