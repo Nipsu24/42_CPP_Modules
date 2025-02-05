@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:40:57 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/05 11:07:54 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:34:08 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,14 @@ void	handleInt(const std::string& literal) {
 }
 
 /*Trims string by removing 'f', then converts it to float and casts it to the respective datatypes. Checks
-  if char is displayable character and if value is within int min/max. Possible exception resulting from
-  stof are caught. Digits for floats and doubles are set to 1 digit after '.'*/
+  if char is displayable character (before casting to int is needed) and if value is within int min/max. 
+  Possible exception resulting from stof are caught. Digits for floats and doubles are set to 1 digit after '.'*/
 void	handleFloats(const std::string& literal) {
 	try {
 		std::string cleanLiteral = literal;
 		cleanLiteral.pop_back();
 		float value = std::stof(cleanLiteral);
-		char c = static_cast<int>(value); //needed as double cannot be directly cast to char
+		char c = static_cast<int>(value);
 		if (!std::isprint(c)) {
 			std::cout << "char: Non displayable" << std::endl;
 		}
@@ -128,7 +128,7 @@ void	handleFloats(const std::string& literal) {
 void	handleDoubles(const std::string& literal) {
 	try {
 		double value = std::stod(literal);
-		char c = static_cast<int>(value); //needed as double cannot be directly cast to char
+		char c = static_cast<int>(value);
 		if (!std::isprint(c)) {
 			std::cout << "char: Non displayable" << std::endl;
 		}
@@ -162,13 +162,10 @@ void	ScalarConverter::convert(const std::string& literal) {
 		return ;
 	if (handlePseudoLiterals(literal))
 		return ;
-	else if (literal.find('.') == std::string::npos) {
-	// else if (isNumeric(literal)) {
+	else if (literal.find('.') == std::string::npos)
 		handleInt(literal);
-	}
-	else if (literal.back() == 'f') {
+	else if (literal.back() == 'f')
 		handleFloats(literal);
-	}
 	else
 		handleDoubles(literal);
 }
