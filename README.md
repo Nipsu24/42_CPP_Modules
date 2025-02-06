@@ -124,6 +124,21 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP05</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp06/ex00)
+    - introduces concept of static casting in C++
+    - program takes string as argument and converts if possible into char, int, float and double
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp06/ex01)
+    - uses reinterpret_cast in order to serialize and deserialize / cast between different datatypes
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp06/ex02)
+    - function that uses randomizer in order to create one out of three derrived class object
+    - introduces concept of dynamic casting from base to derived classes (both pointer and references)
+    - uses this to identify the derived class object to which base object pointer is pointing
+  
+</details>
+
 ## Requirements
 -`c++` compiler
 
