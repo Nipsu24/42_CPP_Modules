@@ -125,7 +125,7 @@ The repository contains several modules consisting of different exercises relate
 </details>
 
 <details>
-  <summary>CPP05</summary>
+  <summary>CPP06</summary>
 
   - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp06/ex00)
     - introduces concept of static casting in C++
