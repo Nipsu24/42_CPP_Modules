@@ -6,13 +6,12 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/07 16:50:55 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/08 15:45:33 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <iostream>
-#include <array>
 
 /*Uses division between total size of intArray and sizeof single member of array
   in order to retrieve number of members in the array.*/
