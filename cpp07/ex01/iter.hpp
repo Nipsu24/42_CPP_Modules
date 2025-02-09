@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/08 15:45:23 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/09 14:05:50 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void print(T& value) {
 
 template<typename T>
 void iter(T* array, std::size_t length, void (*func)(T&)) {
+	if (array == nullptr) {
+		std::cout << "Error. Nullptr passed to function." << std::endl;
+		return ;
+	}
 	for (std::size_t i = 0; i < length; i++)
 		func(array[i]);
 }
