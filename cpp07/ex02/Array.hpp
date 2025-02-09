@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/08 18:19:32 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/09 13:17:20 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ class Array {
 	}
 
 	//copy-constructor
-	Array(const Array<T>& other) : mPtr(nullptr), mSize(0) {
+	Array(const Array<T>& other) {
 		mSize = other.mSize;
-		mPtr = new T[mSize];
+		mPtr = new T[other.mSize];
 		for (size_t i = 0; i < mSize; i++) {
 			mPtr[i] = other.mPtr[i];
 		}
@@ -47,7 +47,7 @@ class Array {
 			return (*this);
 		delete[] mPtr;
 		mSize = other.mSize;
-		mPtr = new T[mSize];
+		mPtr = new T[other.mSize];
 		for (size_t i = 0; i < mSize; i++) {
 			mPtr[i] = other.mPtr[i];
 		}
