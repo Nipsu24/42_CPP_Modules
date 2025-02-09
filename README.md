@@ -143,10 +143,10 @@ The repository contains several modules consisting of different exercises relate
   <summary>CPP07</summary>
 
   - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp07/ex00)
-    - introduces concept function templates
+    - introduces concept of function templates
     - swap, min and max function template implementation
   - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp07/ex01)
-    - implementation of iter function template, taking array pointer, array length and function pointer
+    - implementation of iter function template, taking array pointer, array length and function pointer as arguments
   - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp07/ex02)
     - implementation of array class template, compatible with different array data types
     - handling of [] operator and throwing exceptions in case of out-of-bounds indexing
