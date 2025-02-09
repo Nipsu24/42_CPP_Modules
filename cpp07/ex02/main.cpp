@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/09 13:52:33 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/09 14:09:01 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main( void ) {
 		std::cout << "Value of initial array on Index 1: " << membersArray[1] << std::endl;
 		std::cout << std::endl;
 		
-		std::cout << "Copy assignment to another array: " << std::endl;
+		std::cout << "Copy assignment to another array" << std::endl;
 		Array<int> anotherCopyArray = copyArray;
 		std::cout << "Value of assigned copy array on Index 1 before change: " << anotherCopyArray[1] << std::endl;
 		anotherCopyArray[1] = 20;

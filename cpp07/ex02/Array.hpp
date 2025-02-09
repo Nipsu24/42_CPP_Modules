@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/09 13:17:20 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/09 14:29:51 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ class Array {
 	//constructor
 	Array() : mPtr(nullptr), mSize(0) {}
 
-	//parameterized constructor
-	Array(unsigned int n) : mPtr(new T[n]()), mSize(n) {
-		for (size_t i = 0; i < n; i++) {
-			mPtr[i] = T();
-		}
-	}
+	/*parameterized constructor
+	  new T[n]() ensures that all values are value initialised (and not default initialised with garbage values)
+	  with their default values (int 0, double 0.0 etc.)*/
+	Array(unsigned int n) : mPtr(new T[n]()), mSize(n) {}
 
 	//copy-constructor
 	Array(const Array<T>& other) {
@@ -41,7 +39,9 @@ class Array {
 		}
 	}
 
-	//copy assignemnt operator
+	/*copy assignemnt operator
+	  Delete is actually only needed if parameterized constructor (with new) instead of constructor
+	  has been used but delete nllptr is safe to use in C++*/
 	Array<T>& operator=(const Array<T>& other) {
 		if (this == &other)
 			return (*this);
