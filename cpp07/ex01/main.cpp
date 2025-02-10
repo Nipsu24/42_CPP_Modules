@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:25:43 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/09 14:07:02 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/10 11:43:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main( void ) {
 	
 	std::cout << "Initialise string array with 3 members " << std::endl;
 	std::string strArray[] = {"Hello", "World", "!"};
-	::iter(strArray, sizeof(strArray) / sizeof(strArray[0]), print<std::string>);
+	::iter(strArray, sizeof(strArray) / sizeof(strArray[0]), printArr<std::string>);
 	std::cout << std::endl;
 	
 	std::cout << "Passing empty int array (nullptr) to iter function" << std::endl;
