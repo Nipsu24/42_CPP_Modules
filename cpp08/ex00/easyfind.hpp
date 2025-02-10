@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/10 14:51:11 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/10 14:58:32 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 #include <algorithm>
 
 template<typename T>
-bool easyfind(T& paraA, int paraB) {
+void easyfind(T& paraA, int paraB) {
 	if (std::find(paraA.begin(), paraA.end(), paraB) != paraA.end())
-		return (true);
-	else {
+		return; 
+	else
 		throw std::runtime_error("Value could not be found in array.");
-		return (false);
-	}
 }
 
 #endif
