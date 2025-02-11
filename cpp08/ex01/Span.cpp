@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:19:24 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/11 14:46:20 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/11 15:05:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 Span::Span() : mElements(0) {}
 
-/*Checks if N is equal 0 and throws exception if this is the case. Cannot protect
-  against passing negative numbers as conversion into unsigned int results in high
-  positive number.*/
+/*Checks if N is equal 0 or exceeds int_max (e.g. if -1 is passed to constructor). 
+  throws exception if this is the case. Cannot protect against passing negative numbers 
+  as conversion into unsigned int results in high positive number.*/
 Span::Span(unsigned int N) : mArray() {
 	if (N <= 0 || N > std::numeric_limits<int>::max())
 		throw std::invalid_argument("Array size must be greater than 0 and int_max.");

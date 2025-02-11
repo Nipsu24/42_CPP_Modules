@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/11 11:41:37 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/11 15:03:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Span {
 		int				shortestSpan();
 		int				longestSpan();
 		
+		//exceptions
 		class ArrayFullException : public std::exception {
 			public:
 				const char* what() const noexcept override;
@@ -43,7 +44,6 @@ class Span {
 			public:
 				const char* what() const noexcept override;
 		};
-	
 };
 
 #endif
