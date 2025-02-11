@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:19:24 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/10 17:14:18 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/11 14:46:20 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ Span::Span() : mElements(0) {}
   against passing negative numbers as conversion into unsigned int results in high
   positive number.*/
 Span::Span(unsigned int N) : mArray() {
-	if (N <= 0)
-		throw std::invalid_argument("Array size must be greater than 0.");
-	else
-		mElements = N;
+	if (N <= 0 || N > std::numeric_limits<int>::max())
+		throw std::invalid_argument("Array size must be greater than 0 and int_max.");
+	mElements = N;
 }
 
 Span::Span(const Span& other) : mElements(other.mElements), mArray(other.mArray) {}
@@ -34,7 +33,6 @@ Span& Span::operator=(const Span& other) {
 		return (*this);
 	mElements = other.mElements;
 	mArray = other.mArray;
-	
 	return (*this);
 }
 
@@ -54,21 +52,51 @@ const char*	Span::NotEnoughElementsException::what() const noexcept {
 void	Span::addNumber(const int singleNumber) {
 	if (mArray.size() >= mElements)
 		throw ArrayFullException();
-	mArray.push_back(singleNumber);
+	mArray.insert(singleNumber);
 }
 
+/*First checks if more than 1 element is in the array, then sets shortest span to max int value
+  as comparison start. As std::set is used as container, the set of numbers is already sorted by
+  default. Creates iterator 'it' via auto and sets it to the start of the array. Also
+  generates iterator to the next member and checks that it is not the end of the array. Iterates
+  and substracts each member with the next member and compares result with previously stored.*/
 int Span::shortestSpan() {
 	if (mElements < 2)
 		throw NotEnoughElementsException();
-	std::sort(mArray.begin(), mArray.end());
-	for (size_t i = 0; i < mArray.size(); i++)
-		std::cout << mArray[i] << std::endl;
 	int shortestSpan = std::numeric_limits<int>::max();
-	int difference = 0;
-	for (size_t i = 1; i < mArray.size(); i++) {
-		difference = mArray[i] - mArray[i -1];
+	for (auto it = mArray.begin(); std::next(it) != mArray.end(); ++it) {
+		int difference = *std::next(it) - *it;
 		if (difference < shortestSpan)
 			shortestSpan = difference;
 	}
 	return (shortestSpan);
+}
+
+/*Same check as with shortestSpan, then calculates difference between reversed begin (end) of set
+  and beginning of set. As std::set does not support direct random access, one cannot use e.g.
+  .end() -1. Also .back() is not supported.
+  .*/
+int Span::longestSpan() {
+	if (mElements < 2)
+		throw NotEnoughElementsException();
+	int longestSpan = *mArray.rbegin() - *mArray.begin();
+	return (longestSpan);
+}
+
+/*Checks with substraction whether arguments have been passed correctly, then calls
+  addNumber function to populate array, incl. start and end of sequence.*/
+void	Span::addSpan(int start, int end) {
+	int i = end - start;
+	if (i < 0) {
+		std::cout << "Error. Invalid span passed to function." << std::endl;
+		return;
+	}
+	try {
+		for (; start <= end; start++) {
+			addNumber(start);
+		}
+	}
+	catch (std::exception &e) {
+			std::cerr << e.what() << std::endl;
+	}
 }

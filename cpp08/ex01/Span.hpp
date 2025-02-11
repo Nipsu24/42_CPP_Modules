@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/10 17:14:35 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/11 11:41:37 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define SPAN_HPP
 
 #include <vector>
+#include <set>
 
 class Span {
 	private:
 		unsigned int		mElements;
-		std::vector<int>	mArray;
+		std::set<int>		mArray;
 
 	public:
 		Span();
@@ -29,8 +30,9 @@ class Span {
 
 		//methods
 		void			addNumber(const int singleNumber);
-		int	shortestSpan();
-		int	longestSpan();
+		void			addSpan(int start, int end);
+		int				shortestSpan();
+		int				longestSpan();
 		
 		class ArrayFullException : public std::exception {
 			public:
