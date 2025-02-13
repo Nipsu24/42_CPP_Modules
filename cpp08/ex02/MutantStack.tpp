@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:48:35 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/13 11:20:29 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/13 12:46:08 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MUTANTSTACK_TPP
 
 #include "MutantStack.hpp"
+
 template<class T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 
