@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:04:52 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/14 14:04:07 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/17 14:39:24 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class BitcoinExchange {
 	private:
-	std::map<std::string, double> mMap;
+	std::map<std::string, float> mMap;
 	
 	public:
 		//constructors
@@ -29,6 +29,14 @@ class BitcoinExchange {
 
 		//methods
 		void	calculateBitcoinExchangeRate(const std::string inputFile);
+		void	storeBitcoinDataInMap();
+		void	compareDataWithInput(const std::string inputFile);
+		bool	validateInputFormat(std::string& inputBuffer);
+		bool	validateDateFormat(std::string& inputBuffer);
+		bool	validateSeparatorAndNumberFormat(std::string& inputBuffer);
+		bool	validateInputContent(std::string& inputBuffer);
+		bool	validateDateContent(std::string& inputBuffer);
+		bool	validateNumberContent(std::string& inputBuffer);
 };
 
 #endif
