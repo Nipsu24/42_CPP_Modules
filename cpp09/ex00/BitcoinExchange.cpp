@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:04:29 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/17 14:53:46 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/17 15:22:16 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <sstream>
 #include <regex>
+#include <filesystem>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -29,9 +30,9 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-void	BitcoinExchange::compareDataWithInput(const std::string inputFile) {
-	
-}
+// void	BitcoinExchange::compareDataWithInput(const std::string inputFile) {
+	// storeBitcoinDataInMap();
+// }
 
 /*Converts number part of inputBuffer into float and checks whether the number is in the
   requested range of 0-1000. Also handles potential overflow with try/catch.*/
@@ -181,12 +182,15 @@ void	BitcoinExchange::storeBitcoinDataInMap() {
 	bitCoinData.close();
 }
 
-/*First stores the bitcoin data from .csv file in map array. Then first reads first line of
-  testfile passed to program in order to handle the header properly. Then reads content of file
-  line by line and checks each line for valid format and content. Ultimately compares content of
-  file with stores map values.*/
+/*Checks if passed file is a valid file (and not e.g. a directory). Then reads first line of testfile
+  passed to program in order to handle the header properly. Then reads content of file line by line and
+  checks each line for valid format and content. Ultimately compares content of file with stores map values
+  in compareDataWithInput function.*/
 void	BitcoinExchange::calculateBitcoinExchangeRate(const std::string inputFile) {
-	storeBitcoinDataInMap();
+	if (!std::filesystem::is_regular_file(inputFile)) {
+		std::cerr << "Error. The provided path is not a regular file." << std::endl;
+		return;
+	}
 	std::ifstream	input;
 	input.open(inputFile);
 	if (!input.is_open()) {
@@ -203,7 +207,7 @@ void	BitcoinExchange::calculateBitcoinExchangeRate(const std::string inputFile) 
 			std::cout << "IS VALID FORMAT" << std::endl;
 			if (validateInputContent(inputBuffer)) {
 				std::cout << "IS VALID INPUT" << std::endl;
-				compareDataWithInput(inputFile);
+				// compareDataWithInput(inputFile);
 			}
 		}
 	}

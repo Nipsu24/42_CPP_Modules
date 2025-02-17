@@ -6,13 +6,13 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2025/02/13 17:29:01 by mmeier           ###   ########.fr        #
+#    Updated: 2025/02/17 15:24:39 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = btc
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++11
+FLAGS = -Wall -Wextra -Werror -std=c++17
 
 SRC_DIR = ./
 OBJ_DIR = obj
