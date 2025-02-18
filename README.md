@@ -167,6 +167,21 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP09</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex00)
+    - introduces map array type
+    - stores bitcoin value of different dates in map array
+    - compares stored dates of map with dates passed in a file to program (after checking for format and content validity)
+    - gives out bitcoin value at given date (or proximate date in case date from file passed to program does not exist in map)
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex01)
+    - TBD
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex02)
+    - TBD
+  
+</details>
+
 
 ## Requirements
 -`c++` compiler
