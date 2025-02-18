@@ -153,6 +153,20 @@ The repository contains several modules consisting of different exercises relate
   
 </details>
 
+<details>
+  <summary>CPP08</summary>
+
+  - [**ex00**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp08/ex00)
+    - creates template for a function that checks occurence of passed integer in an array of integers
+  - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp08/ex01)
+    - creates template class which utilises std::set array
+    - sets up member functions to give out shortest and longest span of integers stored in member array
+  - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp08/ex02)
+    - sets up class which inherits from std::stack
+    - implements functions for accessing member variable of std::stack in order to be able to iterate through stack
+  
+</details>
+
 
 ## Requirements
 -`c++` compiler
