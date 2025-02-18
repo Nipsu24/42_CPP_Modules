@@ -6,14 +6,13 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:04:52 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/17 17:54:52 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/18 10:54:07 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-#include <iostream>
 #include <map>
 
 class BitcoinExchange {
