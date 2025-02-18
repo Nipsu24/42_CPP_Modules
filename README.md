@@ -176,7 +176,9 @@ The repository contains several modules consisting of different exercises relate
     - compares stored dates of map with dates passed in a file to program (after checking for format and content validity)
     - gives out bitcoin value at given date (or proximate date in case date from file passed to program does not exist in map)
   - [**ex01**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex01)
-    - TBD
+    - calculator program to which an argument in reverse polish notation can be passed
+    - uses iss for parsing and stores token into list array
+    - uses stack array and push/pop sequence for conducting mathematical operations with operators '+', '-', '*', '\'
   - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex02)
     - TBD
   
