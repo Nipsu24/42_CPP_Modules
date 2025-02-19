@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:21:40 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/18 16:00:51 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/19 09:18:21 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool	RPN::checkForValidInput(const std::string& input) {
 		}
 	}
 	if (numberCount - 1 != signCount) {
-		std::cerr << "Error. Argument does not contain sufficient amount of operants/operators for RPN." << std::endl;
+		std::cerr << "Error. Argument does not contain sufficient amount of operants / operators for RPN." << std::endl;
 		return (false);
 	}
 	return (true);
@@ -81,13 +81,13 @@ void	RPN::calculateResult() {
 				mStack.push(number);
 			}
 			catch (std::out_of_range &e) {
-				std::cout << "Error. Argument contains one or more too large numbers." << std::endl;
+				std::cerr << "Error. Argument contains one or more too large numbers." << std::endl;
 				return;
 			}
 		}
 		else {
 			if (mStack.size() < 2) {
-				std::cout << "Error. Operants incorrectly placed." << std::endl;
+				std::cerr << "Error. Operants / operators incorrectly placed." << std::endl;
 				return;
 			}
 			auto	secondOperant = mStack.top();
@@ -113,7 +113,7 @@ void	RPN::calculateResult() {
 		}
 	}
 	if (mStack.size() != 1) {
-		std::cout << "Error. Stack still has extra values after final calculation." << std::endl;
+		std::cerr << "Error. Stack still has extra values after final calculation." << std::endl;
 		return;
 	}
 	std::cout << result << std::endl;
