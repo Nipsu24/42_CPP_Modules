@@ -6,13 +6,12 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:43:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/19 11:05:34 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/19 11:21:40 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <iostream>
-#include <vector>
 
 /*Checks for insufficient arguments passed to function, converts argument into string array and
   passes it to member functions for further processing.*/
@@ -25,8 +24,9 @@ int main(int ac, char* av[]) {
 	for (auto i = 0; i < ac - 1; i++) {
 		input[i] = av[i + 1];
 	}
-	PmergeMe sortMerger;
-	if (!sortMerger.checkValidInput(input))
+	PmergeMe mergeSorter;
+	if (!mergeSorter.checkValidInput(input))
 		return (1);
+	mergeSorter.mergeSortVector();
 	return (0);
 }
