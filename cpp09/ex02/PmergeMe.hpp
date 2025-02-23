@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:47 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/19 16:58:22 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/23 12:27:11 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 
 class PmergeMe {
 	private:
-	std::vector<int> mVecArr;
-	std::deque<int> mDeqArr;
-	std::vector<std::vector<int>> mNumberPairs;
-	std::vector<int>mVecArrLarge;
-	std::vector<int>mVecArrSmall;
+	std::vector<int>				mVecArr;
+	std::deque<int>					mDeqArr;
+	std::vector<std::vector<int>>	mNumberPairs;
+	int								mRecursionLevel;
 	
 	public:
 		//constructors:
@@ -34,6 +33,7 @@ class PmergeMe {
 		bool	checkValidInput(std::vector<std::string>& input);
 		void	mergeSortVector();
 		void	splitInitiallyIntoPairsVector();
+		void	sortRecursively(std::vector<std::vector<int>> input);
 		// void	mergeSortDeque();
 };
 
