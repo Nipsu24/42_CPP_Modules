@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:25 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/23 17:54:51 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:44:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ void	PmergeMe::sortRecursively(std::vector<std::vector<int>> input) {
 	nextLevelInput.resize(amountOfGroups);
 	for (auto& member : input) {
 		for (int num : member) {
-			nextLevelInput[j].push_back(num);
+			if (j < amountOfGroups)
+				nextLevelInput[j].push_back(num);
 			i++;
 			if (i % amountElementPerGroup == 0) {
 				j++;

@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:47 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/23 12:27:11 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/24 11:31:29 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <vector>
 #include <deque>
+#include <string>
 
 class PmergeMe {
 	private:
