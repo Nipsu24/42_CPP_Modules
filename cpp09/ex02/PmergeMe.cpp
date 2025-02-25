@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:25 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/24 11:44:29 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/25 12:02:20 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,22 @@ void	PmergeMe::sortRecursively(std::vector<std::vector<int>> input) {
 	if (input.size() < 2)
 		return ;
 	size_t i = 0;
-	int j = 0;
+	size_t j = 0;
 	int amountElementPerGroup = 1 << mRecursionLevel; // bitshift for power of .e.g. 2^2
-	int amountOfGroups = input.size() / 2;
+	size_t amountOfGroups = input.size() / 2;
 	std::vector<std::vector<int>> nextLevelInput;
+	std::vector<int> remainingNumbers;
 	nextLevelInput.resize(amountOfGroups);
 	for (auto& member : input) {
 		for (int num : member) {
-			if (j < amountOfGroups)
+			if (j < amountOfGroups) {
 				nextLevelInput[j].push_back(num);
-			i++;
-			if (i % amountElementPerGroup == 0) {
-				j++;
-			if (j >= amountOfGroups)
-				break ;
+				i++;
+				if (i % amountElementPerGroup == 0)
+					j++;
 			}
+			else
+				remainingNumbers.push_back(num);
 		}
 	}
 	for (auto& group : nextLevelInput) {
@@ -127,6 +128,9 @@ void	PmergeMe::sortRecursively(std::vector<std::vector<int>> input) {
 	//debug printing
 	std::cout << "members in " << mRecursionLevel << ". recursion" << std::endl;
 	for (auto& member : nextLevelInput)
+		std::cout << member << std::endl;
+	std::cout << "Remaining numbers:" << std::endl;
+	for (auto member : remainingNumbers)
 		std::cout << member << std::endl;
 	sortRecursively(nextLevelInput);
 }
