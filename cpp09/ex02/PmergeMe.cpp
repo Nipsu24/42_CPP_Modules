@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:25 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/27 14:39:49 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/27 15:01:44 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,10 @@ void	PmergeMe::mergeSortVector()	{
 	std::cout << "++++Vector++++" << std::endl;
 	std::cout << "Before:  ";
 	for (auto it = mVecArr.begin(); it < mVecArr.end(); it++) {
+		if (mVecArr.size() > 20 && it == mVecArr.begin() + 20) {
+				std::cout << "[...]" << std::endl;
+				break;
+		}
 		if (it == mVecArr.end() - 1)
 			std::cout << *it << std::endl;
 		else
@@ -236,6 +240,10 @@ void	PmergeMe::mergeSortVector()	{
 	jacobsthalInsertionVec(mVecArrLarge, mVecArrSmall);
 	std::cout << "After:   ";
 	for (auto it = mVecArrLarge.begin(); it < mVecArrLarge.end(); it++) {
+		if (mVecArrLarge.size() > 20 && it == mVecArrLarge.begin() + 20) {
+				std::cout << "[...]" << std::endl;
+				break;
+		}
 		if (it == mVecArrLarge.end() - 1)
 			std::cout << *it << std::endl;
 		else
@@ -248,6 +256,10 @@ void	PmergeMe::mergeSortDeque()	{
 	std::cout << "++++Deque++++" << std::endl;
 	std::cout << "Before:  ";
 	for (auto it = mDeqArr.begin(); it < mDeqArr.end(); it++) {
+		if (mDeqArr.size() > 20 && it == mDeqArr.begin() + 20) {
+				std::cout << "[...]" << std::endl;
+				break;
+		}
 		if (it == mDeqArr.end() - 1)
 			std::cout << *it << std::endl;
 		else
@@ -258,6 +270,10 @@ void	PmergeMe::mergeSortDeque()	{
 	jacobsthalInsertionDeq(mDeqArrLarge, mDeqArrSmall);
 	std::cout << "After:   ";
 	for (auto it = mDeqArrLarge.begin(); it < mDeqArrLarge.end(); it++) {
+		if (mDeqArrLarge.size() > 20 && it == mDeqArrLarge.begin() + 20) {
+				std::cout << "[...]" << std::endl;
+				break;
+		}
 		if (it == mDeqArrLarge.end() - 1)
 			std::cout << *it << std::endl;
 		else

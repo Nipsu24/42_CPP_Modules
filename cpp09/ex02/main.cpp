@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:43:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/27 14:13:21 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/27 15:03:14 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include <chrono>
 #include <iomanip>
 
-/*Checks for insufficient arguments passed to function, converts argument into string array and
-  passes it to member functions for further processing.*/
+/*Checks for insufficient arguments passed to function, converts argument into vector and deque array and
+  passes it to the member functions for further processing. Checks time of processing needed for both types
+  of arrays*/
 int main(int ac, char* av[]) {
 	if (ac < 3) {
 		std::cerr << "Error. Insufficient arguments passed to program." << std::endl;
@@ -49,7 +50,5 @@ int main(int ac, char* av[]) {
 	auto durationDeq = std::chrono::duration<double, std::micro>(stopDeq - startDeq);
 	std::cout << "Time to process a range of " << mergeSorter.getDequeSize() << " elements with std::deque : "
 								<< std::fixed << std::setprecision(5) << durationDeq.count() << " us" << std::endl;
-
-	
 	return (0);
 }
