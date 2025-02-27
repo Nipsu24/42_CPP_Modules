@@ -6,12 +6,14 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:43:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/19 11:21:40 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/27 14:13:21 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <iostream>
+#include <chrono>
+#include <iomanip>
 
 /*Checks for insufficient arguments passed to function, converts argument into string array and
   passes it to member functions for further processing.*/
@@ -20,13 +22,34 @@ int main(int ac, char* av[]) {
 		std::cerr << "Error. Insufficient arguments passed to program." << std::endl;
 		return (1);
 	}
-	std::vector<std::string> input(ac - 1); //needed if not used input.push_back(av[i+1]) in for loop
-	for (auto i = 0; i < ac - 1; i++) {
-		input[i] = av[i + 1];
-	}
 	PmergeMe mergeSorter;
-	if (!mergeSorter.checkValidInput(input))
+	auto startVec = std::chrono::high_resolution_clock::now();
+	std::vector<std::string> inputVec(ac - 1);
+	for (auto i = 0; i < ac - 1; i++) {
+		inputVec[i] = av[i + 1];
+	}
+	if (!mergeSorter.checkValidInputVector(inputVec))
 		return (1);
 	mergeSorter.mergeSortVector();
+	auto stopVec = std::chrono::high_resolution_clock::now();
+	auto durationVec = std::chrono::duration<double, std::micro>(stopVec - startVec);
+	std::cout << "Time to process a range of " << mergeSorter.getVectorSize() << " elements with std::vector : "
+								<< std::fixed << std::setprecision(5) << durationVec.count() << " us" << std::endl;
+	
+
+	auto startDeq = std::chrono::high_resolution_clock::now();
+	std::deque<std::string> inputDeq(ac - 1);
+	for (auto i = 0; i < ac - 1; i++) {
+		inputDeq[i] = av[i + 1];
+	}
+	if (!mergeSorter.checkValidInputDeque(inputDeq))
+		return (1);
+	mergeSorter.mergeSortDeque();
+	auto stopDeq = std::chrono::high_resolution_clock::now();
+	auto durationDeq = std::chrono::duration<double, std::micro>(stopDeq - startDeq);
+	std::cout << "Time to process a range of " << mergeSorter.getDequeSize() << " elements with std::deque : "
+								<< std::fixed << std::setprecision(5) << durationDeq.count() << " us" << std::endl;
+
+	
 	return (0);
 }

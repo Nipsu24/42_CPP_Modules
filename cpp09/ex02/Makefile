@@ -6,7 +6,7 @@
 #    By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/06 11:47:56 by mmeier            #+#    #+#              #
-#    Updated: 2025/02/19 10:55:57 by mmeier           ###   ########.fr        #
+#    Updated: 2025/02/25 17:34:34 by mmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(NAME): $(OBJ_FILES)
 	@echo "\033[32m PmergeMe has been built successfully!\033[0m"
 
 fsanitize: 
-	$(CC) -o $(NAME) $(FILES) -g -fsanitize=address -static-libsan 
+	$(CC) -o $(NAME) $(FILES) -g -std=c++17 -fsanitize=address
 	
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR) 
 	$(CC) $(FLAGS) -c $< -o $@
