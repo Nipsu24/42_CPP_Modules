@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:04:29 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/18 10:57:41 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/02/28 10:39:56 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool BitcoinExchange::validateNumberContent(std::string& inputBuffer) {
 	try {
 		float bitcoinAmount = stof(number);
 		if (bitcoinAmount > 1000 || bitcoinAmount < 0) {
-			std::cout << "Error. Number too high (out of range) => " << number << std::endl;
+			std::cout << "Error. Number out of range => " << number << std::endl;
 			return (false);
 		}
 	}
@@ -93,25 +93,25 @@ bool BitcoinExchange::validateDateContent(std::string& inputBuffer) {
 	}
 	if (month == 1 || month == 3 || month == 5 || month == 7
 		|| month == 8 || month == 10 || month == 12) {
-		if (day < 0 || day > 31) {
+		if (day < 1 || day > 31) {
 			std::cerr << "Error. Bad input (day) => " << inputBuffer << std::endl;
 			return (false);
 		}
 	}
 	else if (month == 4 || month == 6 || month == 9 || month == 11) {
-		if (day < 0 || day > 30) {
+		if (day < 1 || day > 30) {
 			std::cerr << "Error. Bad input (day) => " << inputBuffer << std::endl;
 			return (false);
 		}
 	}
 	else if (month == 2) {
 		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-			if (day < 0 || day > 29) {
+			if (day < 1 || day > 29) {
 				std::cerr << "Error. Bad input (day) => " << inputBuffer << std::endl;
 				return (false);	
 			}
 		}
-		else if (day < 0 || day > 28) {
+		else if (day < 1 || day > 28) {
 			std::cerr << "Error. Bad input (day) => " << inputBuffer << std::endl;
 			return (false);	
 		}
@@ -128,7 +128,7 @@ bool	BitcoinExchange::validateInputContent(std::string& inputBuffer) {
 
 /*Uses regex to define accepted date format and checks if the date sequence of the inputBuffer
   follow this format. Returns false if it is not the case and prints respective error text.
-  Hanldes additionally cases where line (inputBuffer) only contains whitespaces.*/
+  Handles additionally cases where line (inputBuffer) only contains whitespaces.*/
 bool	BitcoinExchange::validateDateFormat(std::string& inputBuffer) {
 	std::regex	dateRegex(R"(\d{4}-\d{2}-\d{2})");
 	if (inputBuffer.size() >= 10) {
@@ -186,7 +186,7 @@ bool	BitcoinExchange::validateInputFormat(std::string& inputBuffer) {
 	return (true);
 }
 
-/*Reads data from .csv file and strores it by using getline and iss into map array. Valules
+/*Reads data from .csv file and strores it by using getline and iss into map array. Values
   in map are separated by ','.*/
 void	BitcoinExchange::storeBitcoinDataInMap() {
 	std::ifstream	bitCoinData;
