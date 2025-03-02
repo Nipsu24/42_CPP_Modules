@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:04:29 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/28 10:39:56 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/03/02 13:11:47 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,13 +188,13 @@ bool	BitcoinExchange::validateInputFormat(std::string& inputBuffer) {
 
 /*Reads data from .csv file and strores it by using getline and iss into map array. Values
   in map are separated by ','.*/
-void	BitcoinExchange::storeBitcoinDataInMap() {
+bool	BitcoinExchange::storeBitcoinDataInMap() {
 	std::ifstream	bitCoinData;
 	
 	bitCoinData.open("data.csv");
 	if (!bitCoinData.is_open()) {
-		std::cerr << "Error. Bitcoin data file could not be opened" << std::endl;
-		return ;
+		std::cerr << "Error. Bitcoin data file could not be opened." << std::endl;
+		return (false);
 	}
 	std::string	fileContent;
 	while (std::getline(bitCoinData, fileContent)) {
@@ -205,6 +205,7 @@ void	BitcoinExchange::storeBitcoinDataInMap() {
 			mMap[date] = rate;
 	}
 	bitCoinData.close();
+	return (true);
 }
 
 /*Checks if passed file is a valid file (and not e.g. a directory). Then reads first line of test file
@@ -219,13 +220,14 @@ void	BitcoinExchange::calculateBitcoinExchangeRate(const std::string inputFile) 
 	std::ifstream	input;
 	input.open(inputFile);
 	if (!input.is_open()) {
-		std::cerr << "Error. Input file could not be opened" << std::endl;
+		std::cerr << "Error. Input file could not be opened." << std::endl;
 		return ;
 	}
 	std::string headerInput;
 	std::getline(input, headerInput);
 	std::string	inputBuffer;
-	storeBitcoinDataInMap();
+	if (!storeBitcoinDataInMap())
+		return;
 	while (getline(input, inputBuffer)) {
 		if (validateInputFormat(inputBuffer)) {
 			if (validateInputContent(inputBuffer)) {
