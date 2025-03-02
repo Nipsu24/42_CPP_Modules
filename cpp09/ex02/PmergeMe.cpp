@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:25 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/27 15:01:44 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/03/02 13:05:05 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t	PmergeMe::getDequeSize() { return (mDeqArr.size()); }
   stores content in vector and deque array of ints.*/
 bool PmergeMe::checkValidInputVector(std::vector<std::string>& input) {
 	for (std::string member : input) {
-		if (!std::all_of(member.begin(), member.end(), ::isdigit)) {
+		if (!std::all_of(member.begin(), member.end(), ::isdigit) || member.empty()) {
 			std::cerr << "Error. Sequence contains not allowed characters." << std::endl;
 			return (false);
 		}
