@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:21:40 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/19 09:18:21 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/03/02 12:56:37 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,26 +90,44 @@ void	RPN::calculateResult() {
 				std::cerr << "Error. Operants / operators incorrectly placed." << std::endl;
 				return;
 			}
-			auto	secondOperant = mStack.top();
+			auto	secondOperand = mStack.top();
 				mStack.pop();
-			auto	firstOperant = mStack.top();
+			auto	firstOperand = mStack.top();
 				mStack.pop();
 			if (*it == "+") {
-				result = firstOperant + secondOperant;
-				mStack.push(result);
+				if ((secondOperand > 0 && firstOperand > std::numeric_limits<int>::max() - secondOperand) ||
+					(secondOperand < 0 && firstOperand < std::numeric_limits<int>::min() - secondOperand)) {
+					std::cerr << "Error. Result of out range due to addition." << std::endl;
+					return;
+				}
+				result = firstOperand + secondOperand;
 			}
 			else if (*it == "-") {
-				result = firstOperant - secondOperant;
-				mStack.push(result);
+				if ((secondOperand < 0 && firstOperand > std::numeric_limits<int>::max() + secondOperand) ||
+					(secondOperand > 0 && firstOperand < std::numeric_limits<int>::min() + secondOperand)) {
+					std::cerr << "Error. Result of out range due to substraction." << std::endl;
+					return;
+				}
+				result = firstOperand - secondOperand;
 			}
 			else if (*it == "*") {
-				result = firstOperant * secondOperant;
-				mStack.push(result);
+				if ((firstOperand > 0 && secondOperand > 0 && firstOperand > std::numeric_limits<int>::max() / secondOperand) ||
+					(firstOperand > 0 && secondOperand < 0 && secondOperand < std::numeric_limits<int>::min() / firstOperand) ||
+					(firstOperand < 0 && secondOperand > 0 && firstOperand < std::numeric_limits<int>::min() / secondOperand) ||
+					(firstOperand < 0 && secondOperand < 0 && firstOperand < std::numeric_limits<int>::max() / secondOperand)) {
+					std::cerr << "Error. Result of out range due to multiplication." << std::endl;
+					return;	
+				}
+				result = firstOperand * secondOperand;
 			}
 			else if (*it == "/") {
-				result = firstOperant / secondOperant;
-				mStack.push(result);
+				if (secondOperand == 0) {
+					std::cerr << "Error. Division by 0 prohibited." << std::endl;
+					return;
+				}
+				result = firstOperand / secondOperand;
 			}
+			mStack.push(result);
 		}
 	}
 	if (mStack.size() != 1) {
