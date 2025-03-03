@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 12:43:32 by mmeier            #+#    #+#             */
-/*   Updated: 2025/02/27 15:03:14 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/03/03 10:48:12 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int ac, char* av[]) {
 	auto stopVec = std::chrono::high_resolution_clock::now();
 	auto durationVec = std::chrono::duration<double, std::micro>(stopVec - startVec);
 	std::cout << "Time to process a range of " << mergeSorter.getVectorSize() << " elements with std::vector : "
-								<< std::fixed << std::setprecision(5) << durationVec.count() << " us" << std::endl;
+								<< std::fixed << std::setprecision(0) << durationVec.count() << " μs" << std::endl;
 	
 
 	auto startDeq = std::chrono::high_resolution_clock::now();
@@ -49,6 +49,6 @@ int main(int ac, char* av[]) {
 	auto stopDeq = std::chrono::high_resolution_clock::now();
 	auto durationDeq = std::chrono::duration<double, std::micro>(stopDeq - startDeq);
 	std::cout << "Time to process a range of " << mergeSorter.getDequeSize() << " elements with std::deque : "
-								<< std::fixed << std::setprecision(5) << durationDeq.count() << " us" << std::endl;
+								<< std::fixed << std::setprecision(0) << durationDeq.count() << " μs" << std::endl;
 	return (0);
 }
