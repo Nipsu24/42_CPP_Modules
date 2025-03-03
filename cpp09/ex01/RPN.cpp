@@ -6,7 +6,7 @@
 /*   By: mmeier <mmeier@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:21:40 by mmeier            #+#    #+#             */
-/*   Updated: 2025/03/02 12:56:37 by mmeier           ###   ########.fr       */
+/*   Updated: 2025/03/03 10:53:04 by mmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
+#include <limits>
 
 RPN::RPN() {}
 
@@ -97,7 +98,7 @@ void	RPN::calculateResult() {
 			if (*it == "+") {
 				if ((secondOperand > 0 && firstOperand > std::numeric_limits<int>::max() - secondOperand) ||
 					(secondOperand < 0 && firstOperand < std::numeric_limits<int>::min() - secondOperand)) {
-					std::cerr << "Error. Result of out range due to addition." << std::endl;
+					std::cerr << "Error. Result out of range due to addition." << std::endl;
 					return;
 				}
 				result = firstOperand + secondOperand;
@@ -105,7 +106,7 @@ void	RPN::calculateResult() {
 			else if (*it == "-") {
 				if ((secondOperand < 0 && firstOperand > std::numeric_limits<int>::max() + secondOperand) ||
 					(secondOperand > 0 && firstOperand < std::numeric_limits<int>::min() + secondOperand)) {
-					std::cerr << "Error. Result of out range due to substraction." << std::endl;
+					std::cerr << "Error. Result out of range due to substraction." << std::endl;
 					return;
 				}
 				result = firstOperand - secondOperand;
@@ -115,7 +116,7 @@ void	RPN::calculateResult() {
 					(firstOperand > 0 && secondOperand < 0 && secondOperand < std::numeric_limits<int>::min() / firstOperand) ||
 					(firstOperand < 0 && secondOperand > 0 && firstOperand < std::numeric_limits<int>::min() / secondOperand) ||
 					(firstOperand < 0 && secondOperand < 0 && firstOperand < std::numeric_limits<int>::max() / secondOperand)) {
-					std::cerr << "Error. Result of out range due to multiplication." << std::endl;
+					std::cerr << "Error. Result out of range due to multiplication." << std::endl;
 					return;	
 				}
 				result = firstOperand * secondOperand;
