@@ -180,7 +180,8 @@ The repository contains several modules consisting of different exercises relate
     - uses iss for parsing and stores token into list array
     - uses stack array and push/pop sequence for conducting mathematical operations with operators '+', '-', '*', '\'
   - [**ex02**:](https://github.com/Nipsu24/42_CPP_Modules/tree/main/cpp09/ex02)
-    - TBD
+    - Uses two containers (vector and deque) and compares performance of each other when sorting a sequence of numbers
+    - orientates to the Ford-Johnson algorithm and uses recursive sorting and Jacobsthal-Sequence for determining set of values to be sorted with a binary search
   
 </details>
 
